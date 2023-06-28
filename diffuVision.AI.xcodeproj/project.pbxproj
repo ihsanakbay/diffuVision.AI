@@ -57,7 +57,6 @@
 		F93EE5AE2A4CE59F003FE151 /* diffuVision_AIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diffuVision_AIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F93EE5C62A4CE9B5003FE151 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F93EE5C82A4CEA04003FE151 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F93EE5CA2A4CEA13003FE151 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F93EE5CB2A4CEABC003FE151 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		F93EE5CE2A4CEB79003FE151 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F93EE5D02A4CEF5B003FE151 /* Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Generated.swift"; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		F93EE5DA2A4CF73F003FE151 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F950A38E2A4CFBA600AC4D22 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F950A3902A4CFBB900AC4D22 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F950A3922A4CFE5C00AC4D22 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,7 +482,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F93EE5C82A4CEA04003FE151 /* en */,
-				F93EE5CA2A4CEA13003FE151 /* tr */,
+				F950A3922A4CFE5C00AC4D22 /* tr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
