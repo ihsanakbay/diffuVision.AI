@@ -21,6 +21,7 @@
 		F93EE5D32A4CEF5B003FE151 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EE5D12A4CEF5B003FE151 /* Strings+Generated.swift */; };
 		F93EE5D72A4CF1CE003FE151 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EE5D62A4CF1CE003FE151 /* RootViewController.swift */; };
 		F93EE5D92A4CF1D9003FE151 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EE5D82A4CF1D9003FE151 /* RootViewModel.swift */; };
+		F93EE5DB2A4CF73F003FE151 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F93EE5DA2A4CF73F003FE151 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F93EE5D12A4CEF5B003FE151 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		F93EE5D62A4CF1CE003FE151 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F93EE5D82A4CF1D9003FE151 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		F93EE5DA2A4CF73F003FE151 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		F93EE57F2A4CE59E003FE151 = {
 			isa = PBXGroup;
 			children = (
+				F93EE5DA2A4CF73F003FE151 /* README.md */,
 				F93EE58A2A4CE59E003FE151 /* diffuVision.AI */,
 				F93EE5A12A4CE59F003FE151 /* diffuVision.AITests */,
 				F93EE5AB2A4CE59F003FE151 /* diffuVision.AIUITests */,
@@ -162,7 +165,7 @@
 		F93EE5BF2A4CE823003FE151 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				F93EE5D52A4CF1C0003FE151 /* Main */,
+				F93EE5D52A4CF1C0003FE151 /* Root */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -215,13 +218,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F93EE5D52A4CF1C0003FE151 /* Main */ = {
+		F93EE5D52A4CF1C0003FE151 /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				F93EE5D62A4CF1CE003FE151 /* RootViewController.swift */,
 				F93EE5D82A4CF1D9003FE151 /* RootViewModel.swift */,
 			);
-			path = Main;
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93EE5DB2A4CF73F003FE151 /* README.md in Resources */,
 				F93EE5CF2A4CEB79003FE151 /* Colors.xcassets in Resources */,
 				F93EE5982A4CE59F003FE151 /* LaunchScreen.storyboard in Resources */,
 				F93EE5C72A4CEA04003FE151 /* Localizable.strings in Resources */,
