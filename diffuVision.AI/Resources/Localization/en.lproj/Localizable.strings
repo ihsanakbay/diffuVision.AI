@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  diffuVision.AI
+
+  Created by İhsan Akbay on 29.06.2023.
+  
+*/
+
+
+"appTitle" = "diffuVision";
+"appDescription" = "AI Image Generator";
+"onboardMessage" = "Transform your creative ideas into stunning images";
+"getStarted" = "Get Started";
+"dashboardTitle" = "You haven't generated an image yet.\nEnter your prompt and turn your ideas into images.";
+"tabSettings" = "Settings";
+"save" = "Save";
+"share" = "Share";
+"doneButton" = "Done";
+"ok" = "OK";
+"yes" = "Yes";
+"cancel" = "Cancel";
+"none" = "None";
+"regenerate" = "Regenerate";
+"prompt" = "Enter your prompt here";
+
+"error" = "An unexpected error has occurred";
+"unreachableError" = "Check your network connection and try again";
+"selectSize" = "Size";
+"selectEngine" = "AI Engine";
+"selectStyle" = "Style";
+"generateImage" = "Generating image. Please wait.";
+
+"policy" = "Privacy Policy & Terms of Use";
+"feedback" = "Give us feedback";
+"premium" = "Premium";
+"logout" = "Logout";
+"logoutConfirmationMessage" = "Are you sure you want to logout?";
+"deleteAccount" = "Delete your account";
+"deleteAccountConfirmationMessage" = "Your account will be permanently deleted.\nDo you confirm?";
+"user" = "User";
+
+"continue" = "Continue";
+"restore" = "Restore purchase";
+"subscriptions" = "Buy Subscription";
+"mySubscription" = "My Subscription";
+"subscriptionsDescription" = "You can start using the application by subscribing";
+"subscriptionToC" = "Payment will be charged to your AppStore account upon confirmation of purchase. The subscription will automatically renew and be charged 24 hours before the end of the current period unless turned off by the user in the user's account settings. Any unused portion of the trial will be forfeited.";

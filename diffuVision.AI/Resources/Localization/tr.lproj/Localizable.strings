@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  diffuVision.AI
+
+  Created by İhsan Akbay on 29.06.2023.
+  
+*/
+
+
+"appTitle" = "diffuVision";
+"appDescription" = "AI Image Generator";
+"onboardMessage" = "Yaratıcı fikirlerinizi çarpıcı görüntülere dönüştürün";
+"getStarted" = "Başlayın";
+"dashboardTitle" = "Henüz bir resim oluşturmadınız.\nMetninizi girin ve fikirlerinizi resme dökün.";
+"tabSettings" = "Ayarlar";
+"save" = "Kaydet";
+"share" = "Paylaş";
+"doneButton" = "Tamam";
+"ok" = "TAMAM";
+"yes" = "Evet";
+"cancel" = "İptal";
+"none" = "Yok";
+"regenerate" = "Yenile";
+"prompt" = "Buraya metninizi girin";
+
+"error" = "Beklenmedik bir hata oluştu";
+"unreachableError" = "İnternet bağlantınızı kontrol edin ve tekrar deneyin";
+"selectSize" = "Boyut";
+"selectStyle" = "Stil";
+"selectEngine" = "AI Model";
+"generateImage" = "Görüntü oluşturuluyor. Lütfen Bekleyiniz.";
+
+"policy" = "Gizlilik Politikası & Kullanım Koşulları";
+"feedback" = "Bize geri bildirim yapın";
+"premium" = "Premium";
+
+"logout" = "Çıkış yap";
+"logoutConfirmationMessage" = "Çıkış yapmak istediğinizden emin misiniz?";
+"deleteAccount" = "Hesabı sil";
+"deleteAccountConfirmationMessage" = "Hesabınız kalıcı olarak silinecektir. \nOnaylıyor musunuz?";
+"user" = "Kullanıcı";
+
+"continue" = "Devam et";
+"restore" = "Satın almayı geri yükle";
+"subscriptions" = "Abonelik Satın Al";
+"mySubscription" = "Aboneliklerim";
+"subscriptionsDescription" = "Abone olarak uygulamayı kullanmaya başlayabilirsiniz";
+"subscriptionToC" = "Ödeme, satın alma onayının ardından AppStore hesabınızdan tahsil edilecektir. Abonelik, kullanıcının hesap ayarlarında kullanıcı tarafından kapatılmadığı sürece, cari dönemin bitiminden 24 saat önce otomatik olarak yenilenecek ve ücretlendirilecektir. Denemenin kullanılmayan kısmı kaybedilecektir.";
