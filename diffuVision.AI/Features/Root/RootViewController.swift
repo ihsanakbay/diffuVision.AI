@@ -30,15 +30,15 @@ class RootViewController: UIViewController {
 
 extension RootViewController: RootViewModelOutput {
 	func showLoginPage() {
-//		let loginVC = LoginViewController()
-//		loginVC.modalPresentationStyle = .fullScreen
-//		navigationController?.present(loginVC, animated: true)
+		let loginVC = LoginViewController()
+		loginVC.modalPresentationStyle = .fullScreen
+		navigationController?.present(loginVC, animated: true)
 	}
 
 	func showMainPage() {
-//		let mainVC = createNavController(for: ProductListViewController(), title: "Products")
-//		mainVC.modalPresentationStyle = .fullScreen
-//		navigationController?.present(mainVC, animated: true)
+		let mainVC = createNavController(for: MainViewController(), title: LocaleStrings.appTitle)
+		mainVC.modalPresentationStyle = .fullScreen
+		navigationController?.present(mainVC, animated: true)
 	}
 
 	fileprivate func createNavController(

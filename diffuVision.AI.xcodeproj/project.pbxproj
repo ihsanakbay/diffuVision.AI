@@ -22,6 +22,8 @@
 		F93EE5D72A4CF1CE003FE151 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EE5D62A4CF1CE003FE151 /* RootViewController.swift */; };
 		F93EE5D92A4CF1D9003FE151 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93EE5D82A4CF1D9003FE151 /* RootViewModel.swift */; };
 		F93EE5DB2A4CF73F003FE151 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F93EE5DA2A4CF73F003FE151 /* README.md */; };
+		F950A38F2A4CFBA600AC4D22 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A38E2A4CFBA600AC4D22 /* MainViewController.swift */; };
+		F950A3912A4CFBB900AC4D22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3902A4CFBB900AC4D22 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		F93EE5D62A4CF1CE003FE151 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F93EE5D82A4CF1D9003FE151 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		F93EE5DA2A4CF73F003FE151 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F950A38E2A4CFBA600AC4D22 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F950A3902A4CFBB900AC4D22 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				F93EE5D52A4CF1C0003FE151 /* Root */,
+				F950A38D2A4CFB8B00AC4D22 /* Authentication */,
+				F950A38C2A4CFB8700AC4D22 /* Main */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -225,6 +231,22 @@
 				F93EE5D82A4CF1D9003FE151 /* RootViewModel.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		F950A38C2A4CFB8700AC4D22 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F950A38E2A4CFBA600AC4D22 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F950A38D2A4CFB8B00AC4D22 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F950A3902A4CFBB900AC4D22 /* LoginViewController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,9 +425,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F950A38F2A4CFBA600AC4D22 /* MainViewController.swift in Sources */,
 				F93EE5D72A4CF1CE003FE151 /* RootViewController.swift in Sources */,
 				F93EE5D32A4CEF5B003FE151 /* Strings+Generated.swift in Sources */,
 				F93EE5D22A4CEF5B003FE151 /* Colors+Generated.swift in Sources */,
+				F950A3912A4CFBB900AC4D22 /* LoginViewController.swift in Sources */,
 				F93EE58C2A4CE59E003FE151 /* AppDelegate.swift in Sources */,
 				F93EE5D92A4CF1D9003FE151 /* RootViewModel.swift in Sources */,
 				F93EE58E2A4CE59E003FE151 /* SceneDelegate.swift in Sources */,
