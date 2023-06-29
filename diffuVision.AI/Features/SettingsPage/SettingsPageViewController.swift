@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  SettingsPageViewController.swift
 //  diffuVision.AI
 //
 //  Created by İhsan Akbay on 29.06.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class SettingsPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

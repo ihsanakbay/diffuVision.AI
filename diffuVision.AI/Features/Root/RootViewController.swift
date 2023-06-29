@@ -36,9 +36,9 @@ extension RootViewController: RootViewModelOutput {
 	}
 
 	func showMainPage() {
-		let mainVC = createNavController(for: MainViewController(), title: LocaleStrings.appTitle)
-		mainVC.modalPresentationStyle = .fullScreen
-		navigationController?.present(mainVC, animated: true)
+		let mainTabBarVC = MainTabBarController()
+		mainTabBarVC.modalPresentationStyle = .fullScreen
+		navigationController?.present(mainTabBarVC, animated: true)
 	}
 
 	fileprivate func createNavController(
