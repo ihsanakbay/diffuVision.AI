@@ -15,24 +15,38 @@ class MainTabBarController: UITabBarController {
 	}
 
 	private func setupTabBar() {
-//		self.tabBar.barTintColor =
-//		self.tabBar.tintColor =
+		self.tabBar.tintColor = Colors.accentColor.color
 	}
 
 	private func setupTabs() {
+		// MARK: Home page
+
+		let homePageViewModel = HomePageViewModel()
+		let homePageViewController = HomePageViewController(viewModel: homePageViewModel)
 		let homePage = self.createNav("",
 		                              image: Icons.TabView.generatorTab.image,
 		                              navTitle: LocaleStrings.appTitle,
-		                              viewController: HomePageViewController())
+		                              viewController: homePageViewController)
+
+		// MARK: Settings page
+
+		let settingsPageViewController = SettingsPageViewController()
 		let settingsPage = self.createNav("",
 		                                  image: Icons.TabView.settingsTab.image,
 		                                  navTitle: LocaleStrings.tabSettings,
-		                                  viewController: SettingsPageViewController())
+		                                  viewController: settingsPageViewController)
 
 		self.setViewControllers([homePage, settingsPage], animated: true)
 	}
+}
 
-	private func createNav(_ title: String, image: UIImage?, navTitle: String, viewController: UIViewController) -> UINavigationController {
+// MARK: Helper methods
+
+extension MainTabBarController {
+	private func createNav(_ title: String,
+	                       image: UIImage?,
+	                       navTitle: String, viewController: UIViewController) -> UINavigationController
+	{
 		let nav = UINavigationController(rootViewController: viewController)
 		nav.tabBarItem.title = title
 		nav.tabBarItem.image = image
