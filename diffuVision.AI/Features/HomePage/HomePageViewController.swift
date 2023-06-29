@@ -8,22 +8,28 @@
 import UIKit
 
 class HomePageViewController: UIViewController {
+	private let viewModel: HomePageViewModel
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	init(viewModel: HomePageViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+		viewModel.output = self
+	}
 
-        // Do any additional setup after loading the view.
-    }
-    
+	@available(*, unavailable)
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 
-    /*
-    // MARK: - Navigation
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		viewModel.input?.viewDidLoad()
+		view.backgroundColor = Colors.backgroundColor.color
+	}
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension HomePageViewController: HomePageViewOutput {
+	func refresh() {
+		#warning("Refrsh data or ui in here")
+	}
 }
