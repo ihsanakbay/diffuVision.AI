@@ -7,65 +7,87 @@
 
 import UIKit
 
-private typealias DataSource = UITableViewDiffableDataSource<SettingsPageViewController.Section, SettingsModel>
-private typealias DataSnapshot = NSDiffableDataSourceSnapshot<SettingsPageViewController.Section, SettingsModel>
-
 class SettingsPageViewController: UIViewController {
-	private lazy var tableView = UITableView(frame: .zero, style: .insetGrouped)
+	private lazy var scrollView = UIScrollView()
+	
+	private lazy var userView = SettingsItemView()
+	private lazy var reviewView = SettingsItemView()
+	private lazy var policyView = SettingsItemView()
+	private lazy var logoutView = SettingsItemView()
+	private lazy var deleteView = SettingsItemView()
 
-	private lazy var dataSource: DataSource = .init(tableView: tableView) { tableView, indexPath, item in
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseId, for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-		cell.configure(model: item)
-		return cell
-	}
+	private lazy var appStackView = StackViewFactory.build(
+		subviews: [reviewView, policyView],
+		axis: .vertical,
+		spacing: 16,
+		distribution: .fillProportionally)
+
+	private lazy var authStackView = StackViewFactory.build(
+		subviews: [logoutView, deleteView],
+		axis: .vertical,
+		spacing: 16,
+		distribution: .fillProportionally)
+
+	private lazy var stackView = StackViewFactory.build(
+		subviews: [userView, appStackView, authStackView],
+		axis: .vertical,
+		spacing: 32,
+		distribution: .fillProportionally)
 
 	private let viewModel: SettingsPageViewModel = .init()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = LocaleStrings.tabSettings
+		navigationController?.navigationBar.prefersLargeTitles = true
+		navigationController?.navigationBar.prefersLargeTitles = true
 		setupLayout()
-		applySnapshot()
 		viewModel.output = self
 	}
 
 	private func setupLayout() {
 		view.backgroundColor = Colors.backgroundColor.color
-		view.addSubview(tableView)
-		tableView.delegate = self
-		tableView.backgroundColor = .clear
-		tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.reuseId)
-		tableView.snp.makeConstraints { make in
-			make.leading.trailing.top.bottom.equalToSuperview()
+		view.addSubview(scrollView)
+		
+		scrollView.addSubview(stackView)
+		scrollView.snp.makeConstraints { make in
+			make.top.equalToSuperview()
+			make.leading.equalToSuperview()
+			make.trailing.equalToSuperview()
+			make.bottom.equalToSuperview()
 		}
-	}
 
-	private func applySnapshot() {
-		var snapshot = DataSnapshot()
-		snapshot.appendSections([.user, .app, .auth])
-		snapshot.appendItems(SettingsModel.userModels, toSection: .user)
-		snapshot.appendItems(SettingsModel.appModels, toSection: .app)
-		snapshot.appendItems(SettingsModel.authModels, toSection: .auth)
-		dataSource.apply(snapshot, animatingDifferences: true)
-	}
-}
+		stackView.snp.makeConstraints { make in
+			make.top.equalTo(scrollView.snp.top).offset(20)
+			make.leading.equalTo(scrollView.snp.leading).offset(20)
+			make.trailing.equalTo(scrollView.snp.trailing).offset(-20)
+			make.bottom.equalTo(scrollView.snp.bottom).offset(-20)
+			make.width.equalTo(scrollView.snp.width).offset(-40)
+		}
 
-private extension SettingsPageViewController {
-	enum Section {
-		case user
-		case app
-		case auth
+		userView.configure(iconName: Icons.General.user.rawValue, title: "mymail@mail.com")
+
+		reviewView.configure(iconName: Icons.General.feedback.rawValue, title: LocaleStrings.feedback) {
+			print("review")
+		}
+		policyView.configure(iconName: Icons.General.policy.rawValue, title: LocaleStrings.policy) {
+			print("policy")
+		}
+		logoutView.configure(iconName: Icons.General.logout.rawValue, title: LocaleStrings.logout) {
+			let alert = AlertView.showAlertBox(title: LocaleStrings.logout, message: LocaleStrings.logoutConfirmationMessage) { action in
+				print(action)
+			}
+		}
+		deleteView.configure(iconName: Icons.General.delete.rawValue, title: LocaleStrings.deleteAccount) {}
 	}
 }
 
 extension SettingsPageViewController: SettingsPageViewOutput {
-	func signOut() {}
+	func signOut() {
+		alert(message: LocaleStrings.logoutConfirmationMessage, title: LocaleStrings.logout)
+	}
 
 	func deleteAccount() {}
 }
 
-extension SettingsPageViewController: UITableViewDelegate {
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-	}
-}
+extension SettingsPageViewController: UIScrollViewDelegate {}

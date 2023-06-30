@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewCell.swift
+//  SettingsItemView.swift
 //  diffuVision.AI
 //
 //  Created by İhsan Akbay on 30.06.2023.
@@ -7,11 +7,7 @@
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
-	static var reuseId: String {
-		return String(describing: Self.self)
-	}
-
+class SettingsItemView: UIView {
 	private let title = LabelFactory.build(font: UIFont.systemFont(ofSize: 16),
 	                                       textColor: Colors.textColor.color,
 	                                       textAlignment: .left)
@@ -35,9 +31,12 @@ class SettingsTableViewCell: UITableViewCell {
 		alignment: .leading,
 		distribution: .fillProportionally)
 
-	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-		super.init(style: style, reuseIdentifier: reuseIdentifier)
+	private var action: (() -> Void)?
+
+	override init(frame: CGRect) {
+		super.init(frame: frame)
 		setupLayout()
+		setupTapGesture()
 	}
 
 	@available(*, unavailable)
@@ -45,8 +44,18 @@ class SettingsTableViewCell: UITableViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	private func setupTapGesture() {
+		let tap = UITapGestureRecognizer(target: self, action: #selector(actionHandler))
+		addGestureRecognizer(tap)
+	}
+
+	@objc private func actionHandler() {
+		action?()
+	}
+
 	private func setupLayout() {
 		backgroundColor = Colors.secondaryBackgroundColor.color
+		layer.cornerRadius = 10
 		iconView.addSubview(icon)
 		addSubview(stackView)
 		stackView.snp.makeConstraints { make in
@@ -73,12 +82,14 @@ class SettingsTableViewCell: UITableViewCell {
 		}
 	}
 
-	func configure(model: SettingsModel) {
-		icon.image = UIImage(systemName: model.icon)
-		title.text = model.title
+	func configure(iconName: String, title: String, titleColor: UIColor? = nil, action: (() -> Void)? = nil) {
+		icon.image = UIImage(systemName: iconName)
+		self.title.text = title
 
-		if let color = model.titleColor {
-			title.textColor = color
+		if let color = titleColor {
+			self.title.textColor = color
 		}
+
+		self.action = action
 	}
 }
