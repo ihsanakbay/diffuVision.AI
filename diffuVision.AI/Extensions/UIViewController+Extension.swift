@@ -12,6 +12,6 @@ extension UIViewController {
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		let OKAction = UIAlertAction(title: LocaleStrings.ok, style: .default, handler: nil)
 		alertController.addAction(OKAction)
-		self.present(alertController, animated: true, completion: nil)
+		present(alertController, animated: true, completion: nil)
 	}
 }

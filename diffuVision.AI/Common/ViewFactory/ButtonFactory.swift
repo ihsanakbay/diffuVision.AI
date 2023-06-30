@@ -16,7 +16,9 @@ struct ButtonFactory {
 		image: UIImage? = nil,
 		imagePadding: CGFloat = 8,
 		imagePlacement: NSDirectionalRectEdge = .leading,
-		cornerStyle: UIButton.Configuration.CornerStyle = .capsule
+		cornerStyle: UIButton.Configuration.CornerStyle = .capsule,
+		contentAlignment: UIControl.ContentHorizontalAlignment = .center,
+		action: (() -> Void)? = nil
 	) -> UIButton {
 		let button = UIButton()
 		button.configuration = .filled()
@@ -27,6 +29,12 @@ struct ButtonFactory {
 		button.configuration?.imagePadding = imagePadding
 		button.configuration?.imagePlacement = imagePlacement
 		button.configuration?.cornerStyle = cornerStyle
+		button.contentHorizontalAlignment = contentAlignment
+		
+		button.addAction(UIAction { _ in
+			action?()
+		}, for: .touchUpInside)
+
 		return button
 	}
 }
