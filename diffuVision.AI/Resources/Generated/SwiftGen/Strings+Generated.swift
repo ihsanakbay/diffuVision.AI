@@ -63,10 +63,10 @@ internal enum LocaleStrings {
   internal static let restore = LocaleStrings.tr("Localizable", "restore", fallback: "Restore purchase")
   /// Save
   internal static let save = LocaleStrings.tr("Localizable", "save", fallback: "Save")
-  /// AI Engine
-  internal static let selectEngine = LocaleStrings.tr("Localizable", "selectEngine", fallback: "AI Engine")
-  /// Size
-  internal static let selectSize = LocaleStrings.tr("Localizable", "selectSize", fallback: "Size")
+  /// Choose Model
+  internal static let selectEngine = LocaleStrings.tr("Localizable", "selectEngine", fallback: "Choose Model")
+  /// Choose Size
+  internal static let selectSize = LocaleStrings.tr("Localizable", "selectSize", fallback: "Choose Size")
   /// Style
   internal static let selectStyle = LocaleStrings.tr("Localizable", "selectStyle", fallback: "Style")
   /// Share

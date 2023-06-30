@@ -9,7 +9,7 @@ import Foundation
 
 class ApiRouter {
 	struct FetchEngineList: Request {
-		typealias ReturnType = [AIEngine]
+		typealias ReturnType = [Engine]
 		var path: String = "/v1/engines/list"
 		var method: HttpMethod = .get
 		var body: [String: Any]?

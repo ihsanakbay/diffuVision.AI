@@ -59,6 +59,16 @@ class HomePageViewController: UIViewController {
 	private let engineLabel: UILabel = LabelFactory.build(font: UIFont.systemFont(ofSize: 16),
 	                                                      textColor: Colors.textColor.color,
 	                                                      textAlignment: .right)
+	
+	private let emptyLabel: UILabel = {
+		let label = LabelFactory.build(text: LocaleStrings.dashboardTitle,
+									   font: UIFont.systemFont(ofSize: 18),
+													  backgroundColor: .clear,
+													  textColor: Colors.textColor.color,
+													  textAlignment: .center)
+		label.numberOfLines = 0
+		return label
+	}()
 
 	private lazy var textView: UITextView = {
 		let textView = UITextView()
@@ -157,6 +167,13 @@ class HomePageViewController: UIViewController {
 			make.centerY.equalToSuperview()
 			make.height.equalTo(40)
 		}
+		
+		view.addSubview(emptyLabel)
+		emptyLabel.snp.makeConstraints { make in
+			make.top.equalTo(engineView.snp.bottom).offset(40)
+			make.leading.equalToSuperview().offset(20)
+			make.trailing.equalToSuperview().offset(-20)
+		}
 
 		// MARK: Prompt
 
@@ -184,6 +201,8 @@ class HomePageViewController: UIViewController {
 				switch event {
 				case .sizeSelected(size: let size):
 					self?.sizeLabel.text = size.title
+				case .engineSelected(engineId: let engineId):
+					self?.engineLabel.text = engineId
 				}
 			}
 			.store(in: &cancellables)
@@ -208,18 +227,18 @@ class HomePageViewController: UIViewController {
 	}
 
 	@objc func selectEngine(_ sender: UITapGestureRecognizer? = nil) {
-		let vc = SizeSelectionListViewController()
+		let vc = EngineSelectionListViewController()
 		vc.output = self
+		vc.engines = viewModel.engines
 		let nav = UINavigationController(rootViewController: vc)
 		nav.modalPresentationStyle = .pageSheet
 		nav.view.backgroundColor = .blue
 
 		if let sheet = nav.sheetPresentationController {
-			sheet.detents = [.medium()]
+			sheet.detents = [.large()]
 			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
 			sheet.prefersGrabberVisible = true
 			sheet.preferredCornerRadius = 10
-			sheet.selectedDetentIdentifier = .medium
 		}
 
 		present(nav, animated: true)
@@ -258,8 +277,14 @@ extension HomePageViewController: UITextViewDelegate {
 	}
 }
 
-extension HomePageViewController: SelectionListViewOutput {
+extension HomePageViewController: SizeSelectionListViewOutput {
 	func didSelectItem(_ size: Size) {
 		output.send(.sizeSelected(size: size))
+	}
+}
+
+extension HomePageViewController: EngineSelectionListViewOutput {
+	func didSelectItem(_ engine: Engine) {
+		output.send(.engineSelected(engineId: engine.id))
 	}
 }
