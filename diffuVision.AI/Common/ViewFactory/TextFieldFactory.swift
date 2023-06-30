@@ -14,8 +14,8 @@ enum TextFieldFactory {
 		isSecure: Bool = false,
 		backgroundColor: UIColor = Colors.secondaryBackgroundColor.color,
 		foregroundColor: UIColor = Colors.textColor.color,
-		autoCorrection: UITextAutocorrectionType = .default,
-		autoCapitalized: UITextAutocapitalizationType = .sentences
+		autoCorrection: UITextAutocorrectionType = .no,
+		autoCapitalized: UITextAutocapitalizationType = .none
 	) -> UITextField {
 		let spacer = UIView()
 		spacer.snp.makeConstraints { make in

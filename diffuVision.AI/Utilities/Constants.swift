@@ -13,3 +13,9 @@ struct Constants {
 	static let engineId = "stable-diffusion-512-v2-1"
 	static let privacyPolicyLink = "https://docs.google.com/document/d/1FzMSoGiZt1UsHCWr8qn-VZR1OXRVfHx-AWA7abwSKys/edit?usp=sharing"
 }
+
+class SelectedSize {
+	static let shared = SelectedSize()
+	var size: Size = .sizes[1]
+	private init() {}
+}

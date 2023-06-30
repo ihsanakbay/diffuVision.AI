@@ -16,13 +16,13 @@ class MainTabBarController: UITabBarController {
 
 	private func setupTabBar() {
 		self.tabBar.tintColor = Colors.accentColor.color
+		self.tabBar.unselectedItemTintColor = UIColor(named: Colors.textColor.name)?.withAlphaComponent(0.5)
 	}
 
 	private func setupTabs() {
 		// MARK: Home page
 
-		let homePageViewModel = HomePageViewModel()
-		let homePageViewController = HomePageViewController(viewModel: homePageViewModel)
+		let homePageViewController = HomePageViewController()
 		let homePage = self.createNav("",
 		                              image: Icons.TabView.generatorTab.image,
 		                              navTitle: LocaleStrings.appTitle,
