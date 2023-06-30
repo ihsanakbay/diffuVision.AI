@@ -42,7 +42,8 @@
 		F950A3AF2A4D8C8C00AC4D22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */; };
 		F97C6FDD2A4F05BF00EC1B49 /* SettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */; };
 		F97C6FE32A4F165800EC1B49 /* SettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */; };
-		F97C6FE52A4F5E5B00EC1B49 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FE42A4F5E5B00EC1B49 /* NetworkManager.swift */; };
+		F97C6FF42A4F69D900EC1B49 /* NetworkManager in Resources */ = {isa = PBXBuildFile; fileRef = F97C6FF22A4F69D800EC1B49 /* NetworkManager */; };
+		F97C6FF52A4F69D900EC1B49 /* Authentication in Resources */ = {isa = PBXBuildFile; fileRef = F97C6FF32A4F69D800EC1B49 /* Authentication */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +102,8 @@
 		F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewModel.swift; sourceTree = "<group>"; };
 		F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemView.swift; sourceTree = "<group>"; };
-		F97C6FE42A4F5E5B00EC1B49 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F97C6FF22A4F69D800EC1B49 /* NetworkManager */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NetworkManager; sourceTree = "<group>"; };
+		F97C6FF32A4F69D800EC1B49 /* Authentication */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Authentication; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,7 +295,8 @@
 		F93EE5D42A4CF199003FE151 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F97C6FE42A4F5E5B00EC1B49 /* NetworkManager.swift */,
+				F97C6FF32A4F69D800EC1B49 /* Authentication */,
+				F97C6FF22A4F69D800EC1B49 /* NetworkManager */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -480,6 +483,8 @@
 				F950A3982A4D026000AC4D22 /* LaunchScreen.storyboard in Resources */,
 				F93EE5952A4CE59E003FE151 /* Assets.xcassets in Resources */,
 				F93EE5CC2A4CEABC003FE151 /* swiftgen.yml in Resources */,
+				F97C6FF52A4F69D900EC1B49 /* Authentication in Resources */,
+				F97C6FF42A4F69D900EC1B49 /* NetworkManager in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +570,6 @@
 				F921B4F72A4E156500D54F34 /* SizeSelectionListViewController.swift in Sources */,
 				F93EE58E2A4CE59E003FE151 /* SceneDelegate.swift in Sources */,
 				F950A39E2A4D7DB300AC4D22 /* Icons.swift in Sources */,
-				F97C6FE52A4F5E5B00EC1B49 /* NetworkManager.swift in Sources */,
 				F921B4E62A4DC21500D54F34 /* StackViewFactory.swift in Sources */,
 				F950A39C2A4D7D8000AC4D22 /* Constants.swift in Sources */,
 			);
