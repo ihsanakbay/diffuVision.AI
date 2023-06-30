@@ -18,15 +18,12 @@ class SizeSelectionListViewController: UIViewController {
 	private lazy var tableView = UITableView(frame: .zero, style: .insetGrouped)
 
 	private lazy var dataSource: SizeDataSource = .init(tableView: tableView) { tableView, indexPath, item in
-		let cell = tableView.dequeueReusableCell(withIdentifier: GenericSelectionListTableViewCell<Size>.reuseId, for: indexPath) as? GenericSelectionListTableViewCell<Size>
-		if let cell = cell {
-			var isSelected = false
-			if item == SelectedSize.shared.size {
-				isSelected = true
-			}
-			cell.configure(item: item, isSelected: isSelected)
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: GenericSelectionListTableViewCell<Size>.reuseId, for: indexPath) as? GenericSelectionListTableViewCell<Size> else { return UITableViewCell() }
+		var isSelected = false
+		if item == SelectedSize.shared.size {
+			isSelected = true
 		}
-
+		cell.configure(item: item, isSelected: isSelected)
 		return cell
 	}
 
@@ -54,7 +51,7 @@ class SizeSelectionListViewController: UIViewController {
 		var snapshot = SizeDataSnapshot()
 		snapshot.appendSections([.main])
 		snapshot.appendItems(Size.sizes)
-		dataSource.apply(snapshot, animatingDifferences: false)
+		dataSource.apply(snapshot, animatingDifferences: true)
 	}
 }
 

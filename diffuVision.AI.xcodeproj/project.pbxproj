@@ -41,6 +41,9 @@
 		F950A3AA2A4D877300AC4D22 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F950A3A92A4D877300AC4D22 /* Kingfisher */; };
 		F950A3AD2A4D878A00AC4D22 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F950A3AC2A4D878A00AC4D22 /* Alamofire */; };
 		F950A3AF2A4D8C8C00AC4D22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */; };
+		F97C6FDB2A4EF5FE00EC1B49 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FDA2A4EF5FE00EC1B49 /* SettingsTableViewCell.swift */; };
+		F97C6FDD2A4F05BF00EC1B49 /* SettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */; };
+		F97C6FDF2A4F060200EC1B49 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FDE2A4F060200EC1B49 /* SettingsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,9 @@
 		F950A3A02A4D7ED400AC4D22 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		F950A3A32A4D7EFD00AC4D22 /* SettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewController.swift; sourceTree = "<group>"; };
 		F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F97C6FDA2A4EF5FE00EC1B49 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewModel.swift; sourceTree = "<group>"; };
+		F97C6FDE2A4F060200EC1B49 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				F921B4FA2A4E1E6200D54F34 /* Size.swift */,
+				F97C6FDE2A4F060200EC1B49 /* SettingsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +355,8 @@
 			isa = PBXGroup;
 			children = (
 				F950A3A32A4D7EFD00AC4D22 /* SettingsPageViewController.swift */,
+				F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */,
+				F97C6FDA2A4EF5FE00EC1B49 /* SettingsTableViewCell.swift */,
 			);
 			path = SettingsPage;
 			sourceTree = "<group>";
@@ -544,6 +553,7 @@
 				F921B4E42A4DC1EB00D54F34 /* LabelFactory.swift in Sources */,
 				F950A38F2A4CFBA600AC4D22 /* MainTabBarController.swift in Sources */,
 				F921B4E22A4DBEE100D54F34 /* ButtonFactory.swift in Sources */,
+				F97C6FDF2A4F060200EC1B49 /* SettingsModel.swift in Sources */,
 				F950A3AF2A4D8C8C00AC4D22 /* UIViewController+Extension.swift in Sources */,
 				F93EE5D72A4CF1CE003FE151 /* RootViewController.swift in Sources */,
 				F921B4E02A4DBE3A00D54F34 /* ImageViewFactory.swift in Sources */,
@@ -554,10 +564,12 @@
 				F921B4E92A4DC29900D54F34 /* HomePageViewModel.swift in Sources */,
 				F93EE5D92A4CF1D9003FE151 /* RootViewModel.swift in Sources */,
 				F950A3A12A4D7ED400AC4D22 /* HomePageViewController.swift in Sources */,
+				F97C6FDD2A4F05BF00EC1B49 /* SettingsPageViewModel.swift in Sources */,
 				F950A3A42A4D7EFD00AC4D22 /* SettingsPageViewController.swift in Sources */,
 				F921B4F72A4E156500D54F34 /* SizeSelectionListViewController.swift in Sources */,
 				F93EE58E2A4CE59E003FE151 /* SceneDelegate.swift in Sources */,
 				F950A39E2A4D7DB300AC4D22 /* Icons.swift in Sources */,
+				F97C6FDB2A4EF5FE00EC1B49 /* SettingsTableViewCell.swift in Sources */,
 				F921B4E62A4DC21500D54F34 /* StackViewFactory.swift in Sources */,
 				F950A39C2A4D7D8000AC4D22 /* Constants.swift in Sources */,
 			);
