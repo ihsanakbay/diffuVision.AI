@@ -42,7 +42,6 @@
 		F950A3AD2A4D878A00AC4D22 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F950A3AC2A4D878A00AC4D22 /* Alamofire */; };
 		F950A3AF2A4D8C8C00AC4D22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */; };
 		F97C6FDD2A4F05BF00EC1B49 /* SettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */; };
-		F97C6FE12A4F0A2C00EC1B49 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FE02A4F0A2C00EC1B49 /* UIAlertController+Extension.swift */; };
 		F97C6FE32A4F165800EC1B49 /* SettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,7 +100,6 @@
 		F950A3A32A4D7EFD00AC4D22 /* SettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewController.swift; sourceTree = "<group>"; };
 		F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewModel.swift; sourceTree = "<group>"; };
-		F97C6FE02A4F0A2C00EC1B49 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -328,7 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */,
-				F97C6FE02A4F0A2C00EC1B49 /* UIAlertController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -555,7 +552,6 @@
 				F921B4E22A4DBEE100D54F34 /* ButtonFactory.swift in Sources */,
 				F97C6FE32A4F165800EC1B49 /* SettingsItemView.swift in Sources */,
 				F950A3AF2A4D8C8C00AC4D22 /* UIViewController+Extension.swift in Sources */,
-				F97C6FE12A4F0A2C00EC1B49 /* UIAlertController+Extension.swift in Sources */,
 				F93EE5D72A4CF1CE003FE151 /* RootViewController.swift in Sources */,
 				F921B4E02A4DBE3A00D54F34 /* ImageViewFactory.swift in Sources */,
 				F93EE5D32A4CEF5B003FE151 /* Strings+Generated.swift in Sources */,

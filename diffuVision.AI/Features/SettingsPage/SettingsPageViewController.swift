@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsPageViewController: UIViewController {
 	private lazy var scrollView = UIScrollView()
-	
+
 	private lazy var userView = SettingsItemView()
 	private lazy var reviewView = SettingsItemView()
 	private lazy var policyView = SettingsItemView()
@@ -40,7 +40,7 @@ class SettingsPageViewController: UIViewController {
 		super.viewDidLoad()
 		title = LocaleStrings.tabSettings
 		navigationController?.navigationBar.prefersLargeTitles = true
-		navigationController?.navigationBar.prefersLargeTitles = true
+		navigationController?.navigationItem.largeTitleDisplayMode = .automatic
 		setupLayout()
 		viewModel.output = self
 	}
@@ -48,7 +48,7 @@ class SettingsPageViewController: UIViewController {
 	private func setupLayout() {
 		view.backgroundColor = Colors.backgroundColor.color
 		view.addSubview(scrollView)
-		
+
 		scrollView.addSubview(stackView)
 		scrollView.snp.makeConstraints { make in
 			make.top.equalToSuperview()
@@ -74,8 +74,8 @@ class SettingsPageViewController: UIViewController {
 			print("policy")
 		}
 		logoutView.configure(iconName: Icons.General.logout.rawValue, title: LocaleStrings.logout) {
-			let alert = AlertView.showAlertBox(title: LocaleStrings.logout, message: LocaleStrings.logoutConfirmationMessage) { action in
-				print(action)
+			self.confirmAlert(message: LocaleStrings.logoutConfirmationMessage, title: LocaleStrings.logout) {
+				print("Logged out")
 			}
 		}
 		deleteView.configure(iconName: Icons.General.delete.rawValue, title: LocaleStrings.deleteAccount) {}
@@ -84,7 +84,7 @@ class SettingsPageViewController: UIViewController {
 
 extension SettingsPageViewController: SettingsPageViewOutput {
 	func signOut() {
-		alert(message: LocaleStrings.logoutConfirmationMessage, title: LocaleStrings.logout)
+//		alert(message: LocaleStrings.logoutConfirmationMessage, title: LocaleStrings.logout)
 	}
 
 	func deleteAccount() {}
