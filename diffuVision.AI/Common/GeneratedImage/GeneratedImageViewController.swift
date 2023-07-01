@@ -8,7 +8,6 @@
 import UIKit
 
 class GeneratedImageViewController: UIViewController {
-
 	private let scrollView = UIScrollView()
 
 	private lazy var generatedImageView = GeneratedImageView()
@@ -20,7 +19,7 @@ class GeneratedImageViewController: UIViewController {
 
 	private func setupLayout() {
 		let rightBarButtonItem = UIBarButtonItem(image: Icons.General.xMarkCircle.image, style: .plain, target: self, action: #selector(dismissView))
-		
+
 		navigationItem.rightBarButtonItem = rightBarButtonItem
 		navigationController?.navigationBar.tintColor = UIColor.white.withAlphaComponent(0.8)
 		view.backgroundColor = Colors.backgroundColor.color
@@ -41,10 +40,10 @@ class GeneratedImageViewController: UIViewController {
 			make.height.equalTo(scrollView.snp.height)
 			make.width.equalTo(scrollView.snp.width)
 		}
+	}
 
-//		scrollView.contentSize = generatedImageView.frame.size
-
-		generatedImageView.configure(model: GeneratedImageItemModel(promtMessage: "ldkfkmfknfmfkgfdknknfgdn kndgfkngfknf dknfghnk nkfghnk kmndgfnkmhfgnm dfgnkmnfgmknfmknfgmnfghmnfhgmn hgfmfhgmnhfgmkn  nikfd"))
+	func configure(model: GeneratedImageItemModel) {
+		generatedImageView.configure(model: model)
 	}
 
 	@objc private func dismissView() {

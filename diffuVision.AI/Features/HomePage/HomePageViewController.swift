@@ -207,8 +207,7 @@ class HomePageViewController: UIViewController {
 				case .toggleButton(isEnabled: let isEnabled):
 					self?.generateButton.isEnabled = isEnabled
 				case .imageGenerated(model: let model):
-					#warning("dont forget to change")
-					self?.showGeneratedImage()
+					self?.showGeneratedImage(generatedImageItemModel: model)
 				}
 			}
 			.store(in: &cancellables)
@@ -248,8 +247,9 @@ class HomePageViewController: UIViewController {
 		present(nav, animated: true)
 	}
 
-	@objc func showGeneratedImage(_ sender: UITapGestureRecognizer? = nil) {
+	private func showGeneratedImage(generatedImageItemModel: GeneratedImageItemModel) {
 		let vc = GeneratedImageViewController()
+		vc.configure(model: generatedImageItemModel)
 		let nav = UINavigationController(rootViewController: vc)
 		nav.modalPresentationStyle = .fullScreen
 

@@ -90,27 +90,25 @@ final class HomePageViewModel: ObservableObject {
 
 		request = .init()
 
-			output.send(.imageGenerated(model: generatedImageItemModel))
-
-//		ApiClient.dispatch(ApiRouter.GenerateImage(body: request, engine: selectedEngineId))
-//			.sink { [weak self] completion in
-//				self?.isGenerating = false
-//				switch completion {
-//				case .finished:
-//					Log.info("Image successfully generated")
-//				case .failure(let error):
-//					Log.error("Unable to generate image: \(error)")
-//					self?.output.send(.errorOccured(error: error))
-//				}
-//			} receiveValue: { [weak self] response in
-//				self?.generatedImageItemModel.response = response
-//				self?.generatedImageItemModel.promtMessage = self?.request.textPrompts.first?.text
-//				self?.prompt = ""
-//				if let model = self?.generatedImageItemModel {
-//					self?.output.send(.imageGenerated(model: model))
-//				}
-//			}
-//			.store(in: &cancellables)
+		ApiClient.dispatch(ApiRouter.GenerateImage(body: request, engine: selectedEngineId))
+			.sink { [weak self] completion in
+				self?.isGenerating = false
+				switch completion {
+				case .finished:
+					Log.info("Image successfully generated")
+				case .failure(let error):
+					Log.error("Unable to generate image: \(error)")
+					self?.output.send(.errorOccured(error: error))
+				}
+			} receiveValue: { [weak self] response in
+				self?.generatedImageItemModel.response = response
+				self?.generatedImageItemModel.promtMessage = self?.request.textPrompts.first?.text
+				self?.prompt = ""
+				if let model = self?.generatedImageItemModel {
+					self?.output.send(.imageGenerated(model: model))
+				}
+			}
+			.store(in: &cancellables)
 	}
 
 	func checkButtonStatus() {
