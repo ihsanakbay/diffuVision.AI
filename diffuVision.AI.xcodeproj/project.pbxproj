@@ -42,6 +42,7 @@
 		F950A3AF2A4D8C8C00AC4D22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */; };
 		F95EB7DE2A50238600B9FD14 /* GeneratedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EB7DD2A50238600B9FD14 /* GeneratedImageView.swift */; };
 		F95EB7E02A502A8000B9FD14 /* GeneratedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EB7DF2A502A8000B9FD14 /* GeneratedImageViewController.swift */; };
+		F95EB7E42A50838500B9FD14 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = F95EB7E32A50838500B9FD14 /* RiveRuntime */; };
 		F97C6FDD2A4F05BF00EC1B49 /* SettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */; };
 		F97C6FE32A4F165800EC1B49 /* SettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */; };
 		F97C6FF82A4F7C8400EC1B49 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FF72A4F7C8400EC1B49 /* Environment.swift */; };
@@ -119,6 +120,7 @@
 		F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		F95EB7DD2A50238600B9FD14 /* GeneratedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageView.swift; sourceTree = "<group>"; };
 		F95EB7DF2A502A8000B9FD14 /* GeneratedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageViewController.swift; sourceTree = "<group>"; };
+		F95EB7E12A5082E700B9FD14 /* BackgroundAnimation.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundAnimation.riv; sourceTree = "<group>"; };
 		F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewModel.swift; sourceTree = "<group>"; };
 		F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemView.swift; sourceTree = "<group>"; };
 		F97C6FF62A4F7C3800EC1B49 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			files = (
 				F950A3AA2A4D877300AC4D22 /* Kingfisher in Frameworks */,
 				F950A3A72A4D875500AC4D22 /* SnapKit in Frameworks */,
+				F95EB7E42A50838500B9FD14 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +272,7 @@
 		F93EE5BE2A4CE81E003FE151 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F95EB7E12A5082E700B9FD14 /* BackgroundAnimation.riv */,
 				F93EE5C12A4CE8E8003FE151 /* Assets */,
 				F93EE5C22A4CE8F2003FE151 /* Localization */,
 				F93EE5C32A4CE8FB003FE151 /* Generated */,
@@ -458,6 +462,7 @@
 			packageProductDependencies = (
 				F950A3A62A4D875500AC4D22 /* SnapKit */,
 				F950A3A92A4D877300AC4D22 /* Kingfisher */,
+				F95EB7E32A50838500B9FD14 /* RiveRuntime */,
 			);
 			productName = diffuVision.AI;
 			productReference = F93EE5882A4CE59E003FE151 /* diffuVision.AI.app */;
@@ -535,6 +540,7 @@
 			packageReferences = (
 				F950A3A52A4D875500AC4D22 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F950A3A82A4D877300AC4D22 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F95EB7E22A50838500B9FD14 /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			productRefGroup = F93EE5892A4CE59E003FE151 /* Products */;
 			projectDirPath = "";
@@ -1028,6 +1034,14 @@
 				minimumVersion = 7.8.0;
 			};
 		};
+		F95EB7E22A50838500B9FD14 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1040,6 +1054,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F950A3A82A4D877300AC4D22 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F95EB7E32A50838500B9FD14 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F95EB7E22A50838500B9FD14 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

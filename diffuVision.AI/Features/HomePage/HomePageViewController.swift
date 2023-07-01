@@ -105,6 +105,11 @@ class HomePageViewController: UIViewController {
 		setupLayout()
 		observe()
 		output.send(.viewDidLoad)
+		
+		self.showSpinner()
+		Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { t in
+			self.hideSpinner()
+		}
 	}
 
 	private func setupLayout() {
