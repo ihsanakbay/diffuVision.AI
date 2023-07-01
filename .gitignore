@@ -27,6 +27,7 @@ Pods/
 # Icon must end with two \r
 Icon
 
+Config.plist
 
 # Thumbnails
 ._*

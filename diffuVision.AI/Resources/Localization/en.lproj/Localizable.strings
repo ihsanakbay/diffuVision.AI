@@ -25,8 +25,8 @@
 
 "error" = "An unexpected error has occurred";
 "unreachableError" = "Check your network connection and try again";
-"selectSize" = "Size";
-"selectEngine" = "AI Engine";
+"selectSize" = "Choose Size";
+"selectEngine" = "Choose Model";
 "selectStyle" = "Style";
 "generateImage" = "Generating image. Please wait.";
 

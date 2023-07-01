@@ -60,6 +60,16 @@ class HomePageViewController: UIViewController {
 	                                                      textColor: Colors.textColor.color,
 	                                                      textAlignment: .right)
 
+	private let emptyLabel: UILabel = {
+		let label = LabelFactory.build(text: LocaleStrings.dashboardTitle,
+		                               font: UIFont.systemFont(ofSize: 18),
+		                               backgroundColor: .clear,
+		                               textColor: Colors.textColor.color,
+		                               textAlignment: .center)
+		label.numberOfLines = 0
+		return label
+	}()
+
 	private lazy var textView: UITextView = {
 		let textView = UITextView()
 		textView.isScrollEnabled = false
@@ -76,8 +86,7 @@ class HomePageViewController: UIViewController {
 	                                                                imagePadding: 0,
 	                                                                cornerStyle: .large)
 	{
-		#warning("dont forget")
-//		viewModel.generateImage()
+		self.output.send(.generateButtonDidTapped)
 	}
 
 	private lazy var promptStackView = StackViewFactory.build(
@@ -158,6 +167,13 @@ class HomePageViewController: UIViewController {
 			make.height.equalTo(40)
 		}
 
+		view.addSubview(emptyLabel)
+		emptyLabel.snp.makeConstraints { make in
+			make.top.equalTo(engineView.snp.bottom).offset(40)
+			make.leading.equalToSuperview().offset(20)
+			make.trailing.equalToSuperview().offset(-20)
+		}
+
 		// MARK: Prompt
 
 		view.addSubview(promptStackView)
@@ -184,6 +200,14 @@ class HomePageViewController: UIViewController {
 				switch event {
 				case .sizeSelected(size: let size):
 					self?.sizeLabel.text = size.title
+				case .engineSelected(engineId: let engineId):
+					self?.engineLabel.text = engineId
+				case .errorOccured(error: let error):
+					self?.infoAlert(message: error.localizedDescription, title: LocaleStrings.error)
+				case .toggleButton(isEnabled: let isEnabled):
+					self?.generateButton.isEnabled = isEnabled
+				case .imageGenerated(model: let model):
+					self?.showGeneratedImage(generatedImageItemModel: model)
 				}
 			}
 			.store(in: &cancellables)
@@ -194,7 +218,6 @@ class HomePageViewController: UIViewController {
 		vc.output = self
 		let nav = UINavigationController(rootViewController: vc)
 		nav.modalPresentationStyle = .pageSheet
-		nav.view.backgroundColor = .blue
 
 		if let sheet = nav.sheetPresentationController {
 			sheet.detents = [.medium()]
@@ -208,18 +231,33 @@ class HomePageViewController: UIViewController {
 	}
 
 	@objc func selectEngine(_ sender: UITapGestureRecognizer? = nil) {
-		let vc = SizeSelectionListViewController()
+		let vc = EngineSelectionListViewController()
 		vc.output = self
+		vc.engines = viewModel.engines
 		let nav = UINavigationController(rootViewController: vc)
 		nav.modalPresentationStyle = .pageSheet
-		nav.view.backgroundColor = .blue
 
 		if let sheet = nav.sheetPresentationController {
-			sheet.detents = [.medium()]
+			sheet.detents = [.large()]
 			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
 			sheet.prefersGrabberVisible = true
 			sheet.preferredCornerRadius = 10
-			sheet.selectedDetentIdentifier = .medium
+		}
+
+		present(nav, animated: true)
+	}
+
+	private func showGeneratedImage(generatedImageItemModel: GeneratedImageItemModel) {
+		let vc = GeneratedImageViewController()
+		vc.configure(model: generatedImageItemModel)
+		let nav = UINavigationController(rootViewController: vc)
+		nav.modalPresentationStyle = .fullScreen
+
+		if let sheet = nav.sheetPresentationController {
+			sheet.detents = [.large()]
+			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+			sheet.prefersGrabberVisible = true
+			sheet.preferredCornerRadius = 10
 		}
 
 		present(nav, animated: true)
@@ -255,11 +293,21 @@ extension HomePageViewController: UITextViewDelegate {
 				constraint.constant = estimatedSize.height
 			}
 		}
+		if textView.text != LocaleStrings.prompt {
+			viewModel.prompt = textView.text
+			output.send(.toggleButton)
+		}
 	}
 }
 
-extension HomePageViewController: SelectionListViewOutput {
+extension HomePageViewController: SizeSelectionListViewOutput {
 	func didSelectItem(_ size: Size) {
 		output.send(.sizeSelected(size: size))
+	}
+}
+
+extension HomePageViewController: EngineSelectionListViewOutput {
+	func didSelectItem(_ engine: Engine) {
+		output.send(.engineSelected(engineId: engine.id))
 	}
 }

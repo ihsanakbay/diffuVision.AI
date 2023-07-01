@@ -8,14 +8,14 @@
 import Foundation
 
 protocol Selectable: Hashable {
-	var title: String { get }
+	var title: String? { get }
 }
 
 struct Size: Selectable {
 	let id = UUID()
 	let width: Int
 	let height: Int
-	var title: String
+	var title: String?
 
 	init(width: Int, height: Int) {
 		self.width = width

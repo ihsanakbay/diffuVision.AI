@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SelectionListViewOutput: AnyObject {
+protocol SizeSelectionListViewOutput: AnyObject {
 	func didSelectItem(_ size: Size)
 }
 
@@ -18,20 +18,22 @@ class SizeSelectionListViewController: UIViewController {
 	private lazy var tableView = UITableView(frame: .zero, style: .insetGrouped)
 
 	private lazy var dataSource: SizeDataSource = .init(tableView: tableView) { tableView, indexPath, item in
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: GenericSelectionListTableViewCell<Size>.reuseId, for: indexPath) as? GenericSelectionListTableViewCell<Size> else { return UITableViewCell() }
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: GenericSelectionListTableViewCell<Size>.reuseId,
+													   for: indexPath) as? GenericSelectionListTableViewCell<Size> else { return UITableViewCell() }
 		var isSelected = false
-		if item == SelectedSize.shared.size {
+		if item == SelectedItem.shared.size {
 			isSelected = true
 		}
 		cell.configure(item: item, isSelected: isSelected)
 		return cell
 	}
 
-	weak var output: SelectionListViewOutput?
+	weak var output: SizeSelectionListViewOutput?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = LocaleStrings.selectSize
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: LocaleStrings.doneButton, style: .done, target: self, action: #selector(dismissView))
 		setupLayout()
 		applySnapshot()
 	}
@@ -53,6 +55,10 @@ class SizeSelectionListViewController: UIViewController {
 		snapshot.appendItems(Size.sizes)
 		dataSource.apply(snapshot, animatingDifferences: true)
 	}
+	
+	@objc private func dismissView() {
+		dismiss(animated: true)
+	}
 }
 
 private extension SizeSelectionListViewController {
@@ -65,9 +71,9 @@ extension SizeSelectionListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		if let selected = dataSource.itemIdentifier(for: indexPath) {
-			SelectedSize.shared.size = selected
+			SelectedItem.shared.size = selected
 			output?.didSelectItem(selected)
-			dismiss(animated: true)
+			dismissView()
 		}
 	}
 }
