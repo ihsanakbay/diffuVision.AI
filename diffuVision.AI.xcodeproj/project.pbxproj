@@ -38,10 +38,16 @@
 		F950A3A12A4D7ED400AC4D22 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3A02A4D7ED400AC4D22 /* HomePageViewController.swift */; };
 		F950A3A42A4D7EFD00AC4D22 /* SettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3A32A4D7EFD00AC4D22 /* SettingsPageViewController.swift */; };
 		F950A3A72A4D875500AC4D22 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F950A3A62A4D875500AC4D22 /* SnapKit */; };
-		F950A3AA2A4D877300AC4D22 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F950A3A92A4D877300AC4D22 /* Kingfisher */; };
 		F950A3AF2A4D8C8C00AC4D22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */; };
-		F95EB7DE2A50238600B9FD14 /* GeneratedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EB7DD2A50238600B9FD14 /* GeneratedImageView.swift */; };
 		F95EB7E02A502A8000B9FD14 /* GeneratedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EB7DF2A502A8000B9FD14 /* GeneratedImageViewController.swift */; };
+		F95EB7E42A50838500B9FD14 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = F95EB7E32A50838500B9FD14 /* RiveRuntime */; };
+		F95EB7EA2A5094E300B9FD14 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EB7E92A5094E300B9FD14 /* Spinner.swift */; };
+		F95EB7EC2A5098F800B9FD14 /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EB7EB2A5098F800B9FD14 /* CrashlyticsManager.swift */; };
+		F95EB7EF2A509A1000B9FD14 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F95EB7EE2A509A1000B9FD14 /* FirebaseAuth */; };
+		F95EB7F12A509A1000B9FD14 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F95EB7F02A509A1000B9FD14 /* FirebaseCrashlytics */; };
+		F95EB7F32A509A1000B9FD14 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F95EB7F22A509A1000B9FD14 /* FirebaseFirestore */; };
+		F95EB7F52A509A1000B9FD14 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F95EB7F42A509A1000B9FD14 /* FirebaseFirestoreSwift */; };
+		F95EB7F72A509A4B00B9FD14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F95EB7F62A509A4B00B9FD14 /* GoogleService-Info.plist */; };
 		F97C6FDD2A4F05BF00EC1B49 /* SettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */; };
 		F97C6FE32A4F165800EC1B49 /* SettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */; };
 		F97C6FF82A4F7C8400EC1B49 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FF72A4F7C8400EC1B49 /* Environment.swift */; };
@@ -117,8 +123,11 @@
 		F950A3A02A4D7ED400AC4D22 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		F950A3A32A4D7EFD00AC4D22 /* SettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewController.swift; sourceTree = "<group>"; };
 		F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		F95EB7DD2A50238600B9FD14 /* GeneratedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageView.swift; sourceTree = "<group>"; };
 		F95EB7DF2A502A8000B9FD14 /* GeneratedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageViewController.swift; sourceTree = "<group>"; };
+		F95EB7E12A5082E700B9FD14 /* BackgroundAnimation.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundAnimation.riv; sourceTree = "<group>"; };
+		F95EB7E92A5094E300B9FD14 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		F95EB7EB2A5098F800B9FD14 /* CrashlyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
+		F95EB7F62A509A4B00B9FD14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewModel.swift; sourceTree = "<group>"; };
 		F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemView.swift; sourceTree = "<group>"; };
 		F97C6FF62A4F7C3800EC1B49 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -145,8 +154,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F950A3AA2A4D877300AC4D22 /* Kingfisher in Frameworks */,
 				F950A3A72A4D875500AC4D22 /* SnapKit in Frameworks */,
+				F95EB7F12A509A1000B9FD14 /* FirebaseCrashlytics in Frameworks */,
+				F95EB7F52A509A1000B9FD14 /* FirebaseFirestoreSwift in Frameworks */,
+				F95EB7E42A50838500B9FD14 /* RiveRuntime in Frameworks */,
+				F95EB7EF2A509A1000B9FD14 /* FirebaseAuth in Frameworks */,
+				F95EB7F32A509A1000B9FD14 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,10 +243,12 @@
 				F93EE5C02A4CE82B003FE151 /* Common */,
 				F93EE5D42A4CF199003FE151 /* Services */,
 				F950A3992A4D7D4300AC4D22 /* Extensions */,
+				F95EB7E82A5094C900B9FD14 /* Helpers */,
 				F950A39A2A4D7D4A00AC4D22 /* Utilities */,
 				F93EE5BE2A4CE81E003FE151 /* Resources */,
 				F93EE5992A4CE59F003FE151 /* Info.plist */,
 				F97C6FF62A4F7C3800EC1B49 /* Config.plist */,
+				F95EB7F62A509A4B00B9FD14 /* GoogleService-Info.plist */,
 				F93EE5CB2A4CEABC003FE151 /* swiftgen.yml */,
 			);
 			path = diffuVision.AI;
@@ -269,6 +284,7 @@
 		F93EE5BE2A4CE81E003FE151 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F95EB7E12A5082E700B9FD14 /* BackgroundAnimation.riv */,
 				F93EE5C12A4CE8E8003FE151 /* Assets */,
 				F93EE5C22A4CE8F2003FE151 /* Localization */,
 				F93EE5C32A4CE8FB003FE151 /* Generated */,
@@ -378,6 +394,7 @@
 		F950A39A2A4D7D4A00AC4D22 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F95EB7EB2A5098F800B9FD14 /* CrashlyticsManager.swift */,
 				F950A39B2A4D7D8000AC4D22 /* Constants.swift */,
 				F950A39D2A4D7DB300AC4D22 /* Icons.swift */,
 				F97C6FF72A4F7C8400EC1B49 /* Environment.swift */,
@@ -409,9 +426,16 @@
 			isa = PBXGroup;
 			children = (
 				F95EB7DF2A502A8000B9FD14 /* GeneratedImageViewController.swift */,
-				F95EB7DD2A50238600B9FD14 /* GeneratedImageView.swift */,
 			);
 			path = GeneratedImage;
+			sourceTree = "<group>";
+		};
+		F95EB7E82A5094C900B9FD14 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F95EB7E92A5094E300B9FD14 /* Spinner.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F97C6FFF2A4F7E2200EC1B49 /* Authentication */ = {
@@ -457,7 +481,11 @@
 			name = diffuVision.AI;
 			packageProductDependencies = (
 				F950A3A62A4D875500AC4D22 /* SnapKit */,
-				F950A3A92A4D877300AC4D22 /* Kingfisher */,
+				F95EB7E32A50838500B9FD14 /* RiveRuntime */,
+				F95EB7EE2A509A1000B9FD14 /* FirebaseAuth */,
+				F95EB7F02A509A1000B9FD14 /* FirebaseCrashlytics */,
+				F95EB7F22A509A1000B9FD14 /* FirebaseFirestore */,
+				F95EB7F42A509A1000B9FD14 /* FirebaseFirestoreSwift */,
 			);
 			productName = diffuVision.AI;
 			productReference = F93EE5882A4CE59E003FE151 /* diffuVision.AI.app */;
@@ -534,7 +562,8 @@
 			mainGroup = F93EE57F2A4CE59E003FE151;
 			packageReferences = (
 				F950A3A52A4D875500AC4D22 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				F950A3A82A4D877300AC4D22 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F95EB7E22A50838500B9FD14 /* XCRemoteSwiftPackageReference "rive-ios" */,
+				F95EB7ED2A509A1000B9FD14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F93EE5892A4CE59E003FE151 /* Products */;
 			projectDirPath = "";
@@ -553,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F93EE5DB2A4CF73F003FE151 /* README.md in Resources */,
+				F95EB7F72A509A4B00B9FD14 /* GoogleService-Info.plist in Resources */,
 				F93EE5CF2A4CEB79003FE151 /* Colors.xcassets in Resources */,
 				F93EE5C72A4CEA04003FE151 /* Localizable.strings in Resources */,
 				F950A3982A4D026000AC4D22 /* LaunchScreen.storyboard in Resources */,
@@ -605,6 +635,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = Crashlytics;
 			outputFileListPaths = (
@@ -613,7 +645,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n\n# input files a eklenecekler\n# ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n# $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\n";
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -622,7 +654,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F95EB7DE2A50238600B9FD14 /* GeneratedImageView.swift in Sources */,
 				F921B4FD2A4E20A700D54F34 /* GenericSelectionListTableViewCell.swift in Sources */,
 				F921B4FB2A4E1E6200D54F34 /* Size.swift in Sources */,
 				F97C6FFA2A4F7CF800EC1B49 /* Log.swift in Sources */,
@@ -633,6 +664,7 @@
 				F95EB7E02A502A8000B9FD14 /* GeneratedImageViewController.swift in Sources */,
 				F921B4E42A4DC1EB00D54F34 /* LabelFactory.swift in Sources */,
 				F950A38F2A4CFBA600AC4D22 /* MainTabBarController.swift in Sources */,
+				F95EB7EC2A5098F800B9FD14 /* CrashlyticsManager.swift in Sources */,
 				F97C701D2A4F82C900EC1B49 /* EngineSelectionListViewController.swift in Sources */,
 				F97C70112A4F7E2200EC1B49 /* Request.swift in Sources */,
 				F921B4E22A4DBEE100D54F34 /* ButtonFactory.swift in Sources */,
@@ -654,6 +686,7 @@
 				F97C700A2A4F7E2200EC1B49 /* UserManager.swift in Sources */,
 				F97C70142A4F7EE000EC1B49 /* Engine.swift in Sources */,
 				F97C6FDD2A4F05BF00EC1B49 /* SettingsPageViewModel.swift in Sources */,
+				F95EB7EA2A5094E300B9FD14 /* Spinner.swift in Sources */,
 				F950A3A42A4D7EFD00AC4D22 /* SettingsPageViewController.swift in Sources */,
 				F97C700E2A4F7E2200EC1B49 /* NetworkRequestError.swift in Sources */,
 				F97C6FF82A4F7C8400EC1B49 /* Environment.swift in Sources */,
@@ -835,11 +868,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 34KSDVD249;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = diffuVision.AI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = diffuVision.AI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The app needs access to your photo library to be able to save the image.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -873,6 +908,7 @@
 				INFOPLIST_FILE = diffuVision.AI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = diffuVision.AI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The app needs access to your photo library to be able to save the image.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1020,12 +1056,20 @@
 				minimumVersion = 5.6.0;
 			};
 		};
-		F950A3A82A4D877300AC4D22 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		F95EB7E22A50838500B9FD14 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			repositoryURL = "https://github.com/rive-app/rive-ios";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 7.8.0;
+				minimumVersion = 4.0.0;
+			};
+		};
+		F95EB7ED2A509A1000B9FD14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 10.11.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1036,10 +1080,30 @@
 			package = F950A3A52A4D875500AC4D22 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		F950A3A92A4D877300AC4D22 /* Kingfisher */ = {
+		F95EB7E32A50838500B9FD14 /* RiveRuntime */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F950A3A82A4D877300AC4D22 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
+			package = F95EB7E22A50838500B9FD14 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+		F95EB7EE2A509A1000B9FD14 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F95EB7ED2A509A1000B9FD14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F95EB7F02A509A1000B9FD14 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F95EB7ED2A509A1000B9FD14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		F95EB7F22A509A1000B9FD14 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F95EB7ED2A509A1000B9FD14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F95EB7F42A509A1000B9FD14 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F95EB7ED2A509A1000B9FD14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -77,7 +77,8 @@ final class HomePageViewModel: ObservableObject {
 	}
 
 	func generateImage() {
-		isGenerating = true
+		Spinner.showSpinner()
+
 		request.width = selectedSize.width
 		request.height = selectedSize.height
 
@@ -88,19 +89,19 @@ final class HomePageViewModel: ObservableObject {
 		let textPrompt = APIParameters.TextPrompt(text: prompt)
 		request.textPrompts = [textPrompt]
 
-		request = .init()
-
 		ApiClient.dispatch(ApiRouter.GenerateImage(body: request, engine: selectedEngineId))
 			.sink { [weak self] completion in
-				self?.isGenerating = false
 				switch completion {
 				case .finished:
+					Spinner.hideSpinner()
 					Log.info("Image successfully generated")
 				case .failure(let error):
+					Spinner.hideSpinner()
 					Log.error("Unable to generate image: \(error)")
 					self?.output.send(.errorOccured(error: error))
 				}
 			} receiveValue: { [weak self] response in
+				Spinner.hideSpinner()
 				self?.generatedImageItemModel.response = response
 				self?.generatedImageItemModel.promtMessage = self?.request.textPrompts.first?.text
 				self?.prompt = ""

@@ -33,12 +33,18 @@ internal enum LocaleStrings {
   internal static let doneButton = LocaleStrings.tr("Localizable", "doneButton", fallback: "Done")
   /// An unexpected error has occurred
   internal static let error = LocaleStrings.tr("Localizable", "error", fallback: "An unexpected error has occurred")
+  /// Something went wrong
+  internal static let errorTitle = LocaleStrings.tr("Localizable", "errorTitle", fallback: "Something went wrong")
   /// Give us feedback
   internal static let feedback = LocaleStrings.tr("Localizable", "feedback", fallback: "Give us feedback")
   /// Generating image. Please wait.
   internal static let generateImage = LocaleStrings.tr("Localizable", "generateImage", fallback: "Generating image. Please wait.")
   /// Get Started
   internal static let getStarted = LocaleStrings.tr("Localizable", "getStarted", fallback: "Get Started")
+  /// An error occurred while saving the image to the library
+  internal static let imageSaveError = LocaleStrings.tr("Localizable", "imageSaveError", fallback: "An error occurred while saving the image to the library")
+  /// Image saved to library successfully
+  internal static let imageSaveSuccess = LocaleStrings.tr("Localizable", "imageSaveSuccess", fallback: "Image saved to library successfully")
   /// Logout
   internal static let logout = LocaleStrings.tr("Localizable", "logout", fallback: "Logout")
   /// Are you sure you want to logout?

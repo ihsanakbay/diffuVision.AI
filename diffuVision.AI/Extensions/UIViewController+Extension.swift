@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: Alerts
+
 extension UIViewController {
 	func infoAlert(message: String, title: String = "", completion: (() -> Void)? = nil) {
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -28,3 +30,4 @@ extension UIViewController {
 		present(alertController, animated: true, completion: nil)
 	}
 }
+
