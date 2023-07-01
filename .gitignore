@@ -28,6 +28,7 @@ Pods/
 Icon
 
 Config.plist
+GoogleService-Info.plist
 
 # Thumbnails
 ._*
