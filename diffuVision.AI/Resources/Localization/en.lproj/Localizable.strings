@@ -24,6 +24,9 @@
 "prompt" = "Enter your prompt here";
 
 "error" = "An unexpected error has occurred";
+"errorTitle" = "Something went wrong";
+"imageSaveError" = "An error occurred while saving the image to the library";
+"imageSaveSuccess" = "Image saved to library successfully";
 "unreachableError" = "Check your network connection and try again";
 "selectSize" = "Choose Size";
 "selectEngine" = "Choose Model";
@@ -45,3 +48,4 @@
 "mySubscription" = "My Subscription";
 "subscriptionsDescription" = "You can start using the application by subscribing";
 "subscriptionToC" = "Payment will be charged to your AppStore account upon confirmation of purchase. The subscription will automatically renew and be charged 24 hours before the end of the current period unless turned off by the user in the user's account settings. Any unused portion of the trial will be forfeited.";
+

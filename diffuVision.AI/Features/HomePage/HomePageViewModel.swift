@@ -91,15 +91,17 @@ final class HomePageViewModel: ObservableObject {
 
 		ApiClient.dispatch(ApiRouter.GenerateImage(body: request, engine: selectedEngineId))
 			.sink { [weak self] completion in
-				self?.isGenerating = false
 				switch completion {
 				case .finished:
+					Spinner.hideSpinner()
 					Log.info("Image successfully generated")
 				case .failure(let error):
+					Spinner.hideSpinner()
 					Log.error("Unable to generate image: \(error)")
 					self?.output.send(.errorOccured(error: error))
 				}
 			} receiveValue: { [weak self] response in
+				Spinner.hideSpinner()
 				self?.generatedImageItemModel.response = response
 				self?.generatedImageItemModel.promtMessage = self?.request.textPrompts.first?.text
 				self?.prompt = ""
