@@ -18,7 +18,8 @@ struct Icons {
 	}
 
 	enum General: String {
-		case xMark = "xmark.octagon"
+		case xMarkOctagon = "xmark.octagon"
+		case xMarkCircle = "xmark.circle.fill"
 		case logout = "power.circle.fill"
 		case delete = "trash.fill"
 		case user = "person.fill"
@@ -30,6 +31,8 @@ struct Icons {
 		case feedback = "quote.bubble.fill"
 		case premium = "crown.fill"
 		case checkmark
+		case copyFill = "doc.on.doc.fill"
+		case copy = "doc.on.doc"
 
 		var image: UIImage {
 			return UIImage(systemName: self.rawValue)!

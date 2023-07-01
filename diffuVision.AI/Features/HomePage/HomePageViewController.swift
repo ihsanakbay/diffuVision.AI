@@ -59,13 +59,13 @@ class HomePageViewController: UIViewController {
 	private let engineLabel: UILabel = LabelFactory.build(font: UIFont.systemFont(ofSize: 16),
 	                                                      textColor: Colors.textColor.color,
 	                                                      textAlignment: .right)
-	
+
 	private let emptyLabel: UILabel = {
 		let label = LabelFactory.build(text: LocaleStrings.dashboardTitle,
-									   font: UIFont.systemFont(ofSize: 18),
-													  backgroundColor: .clear,
-													  textColor: Colors.textColor.color,
-													  textAlignment: .center)
+		                               font: UIFont.systemFont(ofSize: 18),
+		                               backgroundColor: .clear,
+		                               textColor: Colors.textColor.color,
+		                               textAlignment: .center)
 		label.numberOfLines = 0
 		return label
 	}()
@@ -86,8 +86,7 @@ class HomePageViewController: UIViewController {
 	                                                                imagePadding: 0,
 	                                                                cornerStyle: .large)
 	{
-		#warning("dont forget")
-//		viewModel.generateImage()
+		self.output.send(.generateButtonDidTapped)
 	}
 
 	private lazy var promptStackView = StackViewFactory.build(
@@ -167,7 +166,7 @@ class HomePageViewController: UIViewController {
 			make.centerY.equalToSuperview()
 			make.height.equalTo(40)
 		}
-		
+
 		view.addSubview(emptyLabel)
 		emptyLabel.snp.makeConstraints { make in
 			make.top.equalTo(engineView.snp.bottom).offset(40)
@@ -203,6 +202,13 @@ class HomePageViewController: UIViewController {
 					self?.sizeLabel.text = size.title
 				case .engineSelected(engineId: let engineId):
 					self?.engineLabel.text = engineId
+				case .errorOccured(error: let error):
+					self?.infoAlert(message: error.localizedDescription, title: LocaleStrings.error)
+				case .toggleButton(isEnabled: let isEnabled):
+					self?.generateButton.isEnabled = isEnabled
+				case .imageGenerated(model: let model):
+					#warning("dont forget to change")
+					self?.showGeneratedImage()
 				}
 			}
 			.store(in: &cancellables)
@@ -213,7 +219,6 @@ class HomePageViewController: UIViewController {
 		vc.output = self
 		let nav = UINavigationController(rootViewController: vc)
 		nav.modalPresentationStyle = .pageSheet
-		nav.view.backgroundColor = .blue
 
 		if let sheet = nav.sheetPresentationController {
 			sheet.detents = [.medium()]
@@ -232,7 +237,21 @@ class HomePageViewController: UIViewController {
 		vc.engines = viewModel.engines
 		let nav = UINavigationController(rootViewController: vc)
 		nav.modalPresentationStyle = .pageSheet
-		nav.view.backgroundColor = .blue
+
+		if let sheet = nav.sheetPresentationController {
+			sheet.detents = [.large()]
+			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+			sheet.prefersGrabberVisible = true
+			sheet.preferredCornerRadius = 10
+		}
+
+		present(nav, animated: true)
+	}
+
+	@objc func showGeneratedImage(_ sender: UITapGestureRecognizer? = nil) {
+		let vc = GeneratedImageViewController()
+		let nav = UINavigationController(rootViewController: vc)
+		nav.modalPresentationStyle = .fullScreen
 
 		if let sheet = nav.sheetPresentationController {
 			sheet.detents = [.large()]
@@ -273,6 +292,10 @@ extension HomePageViewController: UITextViewDelegate {
 			if constraint.firstAttribute == .height {
 				constraint.constant = estimatedSize.height
 			}
+		}
+		if textView.text != LocaleStrings.prompt {
+			viewModel.prompt = textView.text
+			output.send(.toggleButton)
 		}
 	}
 }

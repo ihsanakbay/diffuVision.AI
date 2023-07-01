@@ -40,6 +40,8 @@
 		F950A3A72A4D875500AC4D22 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F950A3A62A4D875500AC4D22 /* SnapKit */; };
 		F950A3AA2A4D877300AC4D22 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F950A3A92A4D877300AC4D22 /* Kingfisher */; };
 		F950A3AF2A4D8C8C00AC4D22 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */; };
+		F95EB7DE2A50238600B9FD14 /* GeneratedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EB7DD2A50238600B9FD14 /* GeneratedImageView.swift */; };
+		F95EB7E02A502A8000B9FD14 /* GeneratedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EB7DF2A502A8000B9FD14 /* GeneratedImageViewController.swift */; };
 		F97C6FDD2A4F05BF00EC1B49 /* SettingsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */; };
 		F97C6FE32A4F165800EC1B49 /* SettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */; };
 		F97C6FF82A4F7C8400EC1B49 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C6FF72A4F7C8400EC1B49 /* Environment.swift */; };
@@ -115,6 +117,8 @@
 		F950A3A02A4D7ED400AC4D22 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		F950A3A32A4D7EFD00AC4D22 /* SettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewController.swift; sourceTree = "<group>"; };
 		F950A3AE2A4D8C8C00AC4D22 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F95EB7DD2A50238600B9FD14 /* GeneratedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageView.swift; sourceTree = "<group>"; };
+		F95EB7DF2A502A8000B9FD14 /* GeneratedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageViewController.swift; sourceTree = "<group>"; };
 		F97C6FDC2A4F05BF00EC1B49 /* SettingsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewModel.swift; sourceTree = "<group>"; };
 		F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemView.swift; sourceTree = "<group>"; };
 		F97C6FF62A4F7C3800EC1B49 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 		F93EE5C02A4CE82B003FE151 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F95EB7DC2A50235F00B9FD14 /* GeneratedImage */,
 				F921B4DC2A4DBCB100D54F34 /* ViewFactory */,
 				F921B4F52A4E152400D54F34 /* SelectionList */,
 			);
@@ -398,6 +403,15 @@
 				F97C6FE22A4F165800EC1B49 /* SettingsItemView.swift */,
 			);
 			path = SettingsPage;
+			sourceTree = "<group>";
+		};
+		F95EB7DC2A50235F00B9FD14 /* GeneratedImage */ = {
+			isa = PBXGroup;
+			children = (
+				F95EB7DF2A502A8000B9FD14 /* GeneratedImageViewController.swift */,
+				F95EB7DD2A50238600B9FD14 /* GeneratedImageView.swift */,
+			);
+			path = GeneratedImage;
 			sourceTree = "<group>";
 		};
 		F97C6FFF2A4F7E2200EC1B49 /* Authentication */ = {
@@ -608,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F95EB7DE2A50238600B9FD14 /* GeneratedImageView.swift in Sources */,
 				F921B4FD2A4E20A700D54F34 /* GenericSelectionListTableViewCell.swift in Sources */,
 				F921B4FB2A4E1E6200D54F34 /* Size.swift in Sources */,
 				F97C6FFA2A4F7CF800EC1B49 /* Log.swift in Sources */,
@@ -615,6 +630,7 @@
 				F921B4DE2A4DBCCA00D54F34 /* TextFieldFactory.swift in Sources */,
 				F97C700F2A4F7E2200EC1B49 /* ApiConstants.swift in Sources */,
 				F97C70162A4F7F6D00EC1B49 /* TectToImageResponse.swift in Sources */,
+				F95EB7E02A502A8000B9FD14 /* GeneratedImageViewController.swift in Sources */,
 				F921B4E42A4DC1EB00D54F34 /* LabelFactory.swift in Sources */,
 				F950A38F2A4CFBA600AC4D22 /* MainTabBarController.swift in Sources */,
 				F97C701D2A4F82C900EC1B49 /* EngineSelectionListViewController.swift in Sources */,
