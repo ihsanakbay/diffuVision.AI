@@ -31,24 +31,3 @@ extension UIViewController {
 	}
 }
 
-// MARK: Spinner
-
-private var backgroundView: UIView?
-
-extension UIViewController {
-	func showSpinner() {
-		backgroundView = UIView(frame: self.view.bounds)
-		backgroundView?.backgroundColor = Colors.backgroundColor.color.withAlphaComponent(0.5)
-
-		let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
-		activityIndicator.center = backgroundView!.center
-		activityIndicator.startAnimating()
-		backgroundView?.addSubview(activityIndicator)
-		self.view.addSubview(backgroundView!)
-	}
-
-	func hideSpinner() {
-		backgroundView?.removeFromSuperview()
-		backgroundView = nil
-	}
-}

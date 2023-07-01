@@ -77,7 +77,8 @@ final class HomePageViewModel: ObservableObject {
 	}
 
 	func generateImage() {
-		isGenerating = true
+		Spinner.showSpinner()
+
 		request.width = selectedSize.width
 		request.height = selectedSize.height
 
@@ -87,8 +88,6 @@ final class HomePageViewModel: ObservableObject {
 
 		let textPrompt = APIParameters.TextPrompt(text: prompt)
 		request.textPrompts = [textPrompt]
-
-		request = .init()
 
 		ApiClient.dispatch(ApiRouter.GenerateImage(body: request, engine: selectedEngineId))
 			.sink { [weak self] completion in
