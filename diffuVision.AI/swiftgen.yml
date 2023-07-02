@@ -16,15 +16,6 @@ strings:
 ##   - To know which params are supported for a template, use `swiftgen template doc xcassets swift5` to open the template documentation on GitHub.
 xcassets:
   inputs:
-    - Assets/Assets.xcassets
-  outputs:
-    - templateName: swift5
-      params:
-        forceProvidesNamespaces: true
-      output: XCAssets+Generated.swift
-      params:
-        enumName: AssetStrings
-  inputs:
     - Assets/Colors.xcassets
   outputs:
     - templateName: swift5
@@ -33,6 +24,15 @@ xcassets:
       output: Colors+Generated.swift
       params:
         enumName: Colors
+  inputs:
+    - Assets/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+      output: XCAssets+Generated.swift
+      params:
+        enumName: AssetStrings
 
 ## Generate constants for your storyboards and XIBs.
 ##   This one generates 2 output files, one containing the storyboard scenes, and another for the segues.

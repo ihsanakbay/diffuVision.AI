@@ -24,9 +24,9 @@ final class RootViewModel {
 //		if let accessToken = loginStorageService.getUserAccessToken(),
 //		   !accessToken.isEmpty
 //		{
-		output?.showMainPage()
+//		output?.showMainPage()
 //		} else {
-//			output?.showLoginPage()
+			output?.showLoginPage()
 //		}
 	}
 }
