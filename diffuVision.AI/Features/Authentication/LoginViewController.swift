@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
 
 	private lazy var appleButton: ASAuthorizationAppleIDButton = {
 		let button = ASAuthorizationAppleIDButton(type: .signIn, style: .white)
-		button.addTarget(self, action: #selector(handleLogInWithAppleID), for: .touchUpInside)
+		button.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
 		return button
 	}()
 
@@ -95,8 +95,97 @@ class LoginViewController: UIViewController {
 			}
 			.store(in: &cancellables)
 	}
+
+	// MARK: from Apple's login app
+
+	// - Tag: perform_appleid_password_request
+	/// Prompts the user if an existing iCloud Keychain credential or Apple ID credential is found.
+	func performExistingAccountSetupFlows() {
+		// Prepare requests for both Apple ID and password providers.
+		let requests = [ASAuthorizationAppleIDProvider().createRequest(),
+		                ASAuthorizationPasswordProvider().createRequest()]
+
+		// Create an authorization controller with the given requests.
+		let authorizationController = ASAuthorizationController(authorizationRequests: requests)
+		authorizationController.delegate = self
+		authorizationController.presentationContextProvider = self
+		authorizationController.performRequests()
+	}
+
+	/// - Tag: perform_appleid_request
+	@objc func handleAuthorizationAppleIDButtonPress() {
+		let appleIDProvider = ASAuthorizationAppleIDProvider()
+		let request = appleIDProvider.createRequest()
+		request.requestedScopes = [.fullName, .email]
+
+		let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+		authorizationController.delegate = self
+		authorizationController.presentationContextProvider = self
+		authorizationController.performRequests()
+	}
 }
 
-extension LoginViewController {
-	@objc private func handleLogInWithAppleID() {}
+// MARK: ASAuthorizationControllerDelegate
+
+extension LoginViewController: ASAuthorizationControllerDelegate {
+	/// - Tag: did_complete_authorization
+	func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+		switch authorization.credential {
+		case let appleIDCredential as ASAuthorizationAppleIDCredential:
+			// Create an account in your system.
+			let userIdentifier = appleIDCredential.user
+			let fullName = appleIDCredential.fullName
+			let email = appleIDCredential.email
+
+			saveUserInKeychain(userIdentifier)
+
+			// For the purpose of this demo app, show the Apple ID credential information in the `MainTabBarViewController`.
+			showMainViewController()
+
+		case let passwordCredential as ASPasswordCredential:
+
+			// Sign in using an existing iCloud Keychain credential.
+			let username = passwordCredential.user
+			let password = passwordCredential.password
+
+			// For the purpose of this demo app, show the password credential as an alert.
+			DispatchQueue.main.async {
+				self.showPasswordCredentialAlert(username: username, password: password)
+			}
+
+		default:
+			break
+		}
+	}
+
+	private func saveUserInKeychain(_ userIdentifier: String) {
+		output.send(.saveUserToKeychain(userIdentifier))
+	}
+
+	private func showMainViewController() {
+		let mainTabBarVC = MainTabBarController()
+		mainTabBarVC.modalPresentationStyle = .fullScreen
+		navigationController?.present(mainTabBarVC, animated: true)
+	}
+
+	private func showPasswordCredentialAlert(username: String, password: String) {
+		let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"
+		let alertController = UIAlertController(title: "Keychain Credential Received",
+		                                        message: message,
+		                                        preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+		present(alertController, animated: true, completion: nil)
+	}
+
+	/// - Tag: did_complete_error
+	func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+		infoAlert(message: error.localizedDescription, title: LocaleStrings.errorTitle)
+	}
+}
+
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+	/// - Tag: provide_presentation_anchor
+	func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+		return view.window!
+	}
 }

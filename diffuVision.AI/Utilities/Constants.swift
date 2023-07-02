@@ -7,7 +7,9 @@
 
 import UIKit
 
-struct Constants {
+let bundleID = Bundle.main.bundleIdentifier ?? "com.ihsanakbay.diffuVision-AI"
+
+enum Constants {
 	static let screenWidth = UIScreen.main.bounds.width
 	static let screenHeight = UIScreen.main.bounds.height
 	static let engineId = "stable-diffusion-512-v2-1"

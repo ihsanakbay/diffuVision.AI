@@ -5,12 +5,14 @@
 //  Created by İhsan Akbay on 2.07.2023.
 //
 
+import AuthenticationServices
 import Combine
 import Foundation
 
 final class LoginViewModel: ObservableObject {
 	enum Input {
 		case signInWithAppleButtonDidTapped
+		case saveUserToKeychain(_ userIdentifier: String)
 	}
 
 	enum Output {
@@ -26,6 +28,8 @@ final class LoginViewModel: ObservableObject {
 			switch event {
 			case .signInWithAppleButtonDidTapped:
 				self?.signInWithApple()
+			case .saveUserToKeychain(let userIdentifier):
+				self?.saveUserToKeychain(userIdentifier)
 			}
 		}.store(in: &cancellables)
 
@@ -34,5 +38,13 @@ final class LoginViewModel: ObservableObject {
 
 	func signInWithApple() {
 		output.send(.successfullySignedInWithApple)
+	}
+
+	func saveUserToKeychain(_ userIdentifier: String) {
+		do {
+			try KeychainItem(service: bundleID, account: KeychainItem.StorageKeys.userIdentifier.rawValue).saveItem(userIdentifier)
+		} catch {
+			print("Unable to save userIdentifier to keychain.")
+		}
 	}
 }
