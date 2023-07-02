@@ -6,8 +6,6 @@
 //
 
 import AuthenticationServices
-//import FirebaseAuth
-//import FirebaseFirestore
 import Foundation
 
 enum AuthProviderOption: String {
