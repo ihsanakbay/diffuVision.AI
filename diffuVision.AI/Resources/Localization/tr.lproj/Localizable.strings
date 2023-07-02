@@ -40,6 +40,7 @@
 "logoutConfirmationMessage" = "Çıkış yapmak istediğinizden emin misiniz?";
 "deleteAccount" = "Hesabı sil";
 "deleteAccountConfirmationMessage" = "Hesabınız kalıcı olarak silinecektir. \nOnaylıyor musunuz?";
+"deletedSuccessfully" = "Hesabınız Silindi";
 "user" = "Kullanıcı";
 
 "continue" = "Devam et";

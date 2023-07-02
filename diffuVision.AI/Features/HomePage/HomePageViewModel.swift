@@ -30,7 +30,6 @@ final class HomePageViewModel: ObservableObject {
 	@Published var selectedSize: Size = .sizes[1]
 	@Published var selectedEngineId: String = Constants.engineId
 	@Published var engines: [Engine] = .init()
-	@Published var isGenerating: Bool = false
 	@Published var prompt: String = ""
 
 	private let output = PassthroughSubject<Output, Never>()

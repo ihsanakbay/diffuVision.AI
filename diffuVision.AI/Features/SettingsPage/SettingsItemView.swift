@@ -8,7 +8,8 @@
 import UIKit
 
 class SettingsItemView: UIView {
-	private let title = LabelFactory.build(font: UIFont.systemFont(ofSize: 16),
+	private let title = LabelFactory.build(text: "N/A",
+	                                       font: UIFont.systemFont(ofSize: 16),
 	                                       textColor: Colors.textColor.color,
 	                                       textAlignment: .left)
 	private let iconView: UIView = {
@@ -21,15 +22,9 @@ class SettingsItemView: UIView {
 	private let icon: UIImageView = {
 		let iv = UIImageView()
 		iv.tintColor = Colors.textColor.color
+		iv.image = Icons.General.user.image
 		return iv
 	}()
-
-	private lazy var stackView = StackViewFactory.build(
-		subviews: [iconView, title],
-		axis: .horizontal,
-		spacing: 16,
-		alignment: .leading,
-		distribution: .fillProportionally)
 
 	private var action: (() -> Void)?
 
@@ -57,18 +52,13 @@ class SettingsItemView: UIView {
 		backgroundColor = Colors.secondaryBackgroundColor.color
 		layer.cornerRadius = 10
 		iconView.addSubview(icon)
-		addSubview(stackView)
-		stackView.snp.makeConstraints { make in
-			make.top.equalToSuperview().offset(8)
-			make.leading.equalToSuperview().offset(8)
-			make.trailing.equalToSuperview().offset(-8)
-			make.bottom.equalToSuperview().offset(-8)
-		}
+		addSubview(iconView)
+		addSubview(title)
 
 		iconView.snp.makeConstraints { make in
-			make.top.equalToSuperview()
-			make.leading.equalToSuperview()
-			make.bottom.equalToSuperview()
+			make.top.equalToSuperview().offset(8)
+			make.leading.equalToSuperview().offset(8)
+			make.bottom.equalToSuperview().offset(-8)
 			make.height.width.equalTo(30)
 		}
 
@@ -77,7 +67,7 @@ class SettingsItemView: UIView {
 			make.centerY.centerX.equalToSuperview()
 		}
 		title.snp.makeConstraints { make in
-			make.centerY.equalToSuperview()
+			make.centerY.equalTo(iconView.snp.centerY)
 			make.leading.equalTo(iconView.snp.trailing).offset(16)
 		}
 	}

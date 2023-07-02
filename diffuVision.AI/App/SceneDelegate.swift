@@ -15,12 +15,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 		let window = UIWindow(windowScene: windowScene)
 
-		#warning("dont forget this")
-//		let loginStorageService: LoginStorageService = LoginStorageManager()
 		let rootViewModel = RootViewModel()
 		let rootViewController = RootViewController(viewModel: rootViewModel)
 		window.rootViewController = UINavigationController(rootViewController: rootViewController)
 		self.window = window
 		window.makeKeyAndVisible()
+	}
+}
+
+extension SceneDelegate {
+	func setRootViewController(_ vc: UIViewController, animated: Bool = true) {
+		guard animated, let window = window else {
+			self.window?.rootViewController = vc
+			self.window?.makeKeyAndVisible()
+			return
+		}
+
+		window.rootViewController = vc
+		window.makeKeyAndVisible()
+		UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve,
+		                  animations: nil, completion: nil)
 	}
 }

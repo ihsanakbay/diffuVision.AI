@@ -42,10 +42,12 @@ extension RootViewController: RootViewModelOutput {
 
 	fileprivate func createNavController(
 		for rootViewController: UIViewController,
-		title: String) -> UIViewController
+		title: String,
+		navBarHidden: Bool) -> UIViewController
 	{
 		let navController = UINavigationController(rootViewController: rootViewController)
 		navController.navigationBar.prefersLargeTitles = false
+		navController.isNavigationBarHidden = navBarHidden
 		rootViewController.navigationItem.title = title
 		return navController
 	}

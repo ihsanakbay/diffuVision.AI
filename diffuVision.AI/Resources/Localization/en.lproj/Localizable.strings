@@ -40,6 +40,7 @@
 "logoutConfirmationMessage" = "Are you sure you want to logout?";
 "deleteAccount" = "Delete your account";
 "deleteAccountConfirmationMessage" = "Your account will be permanently deleted.\nDo you confirm?";
+"deletedSuccessfully" = "Your account has been deleted";
 "user" = "User";
 
 "continue" = "Continue";

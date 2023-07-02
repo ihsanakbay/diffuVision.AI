@@ -12,7 +12,7 @@ import Foundation
 final class LoginViewModel: ObservableObject {
 	enum Input {
 		case signInWithAppleButtonDidTapped
-		case saveUserToKeychain(_ userIdentifier: String)
+		case saveUserToKeychain(_ userIdentifier: String, _ fullName: String, _ email: String)
 	}
 
 	enum Output {
@@ -28,8 +28,8 @@ final class LoginViewModel: ObservableObject {
 			switch event {
 			case .signInWithAppleButtonDidTapped:
 				self?.signInWithApple()
-			case .saveUserToKeychain(let userIdentifier):
-				self?.saveUserToKeychain(userIdentifier)
+			case .saveUserToKeychain(let uid, let fullName, let email):
+				self?.saveUserToKeychain(uid, fullName, email)
 			}
 		}.store(in: &cancellables)
 
@@ -40,9 +40,11 @@ final class LoginViewModel: ObservableObject {
 		output.send(.successfullySignedInWithApple)
 	}
 
-	func saveUserToKeychain(_ userIdentifier: String) {
+	func saveUserToKeychain(_ userIdentifier: String, _ fullName: String, _ email: String) {
 		do {
 			try KeychainItem(service: bundleID, account: KeychainItem.StorageKeys.userIdentifier.rawValue).saveItem(userIdentifier)
+			try KeychainItem(service: bundleID, account: KeychainItem.StorageKeys.fullName.rawValue).saveItem(fullName)
+			try KeychainItem(service: bundleID, account: KeychainItem.StorageKeys.email.rawValue).saveItem(email)
 		} catch {
 			print("Unable to save userIdentifier to keychain.")
 		}
