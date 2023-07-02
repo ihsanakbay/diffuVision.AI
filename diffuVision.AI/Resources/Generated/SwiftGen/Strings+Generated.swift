@@ -29,6 +29,8 @@ internal enum LocaleStrings {
   /// Your account will be permanently deleted.
   /// Do you confirm?
   internal static let deleteAccountConfirmationMessage = LocaleStrings.tr("Localizable", "deleteAccountConfirmationMessage", fallback: "Your account will be permanently deleted.\nDo you confirm?")
+  /// Your account has been deleted
+  internal static let deletedSuccessfully = LocaleStrings.tr("Localizable", "deletedSuccessfully", fallback: "Your account has been deleted")
   /// Done
   internal static let doneButton = LocaleStrings.tr("Localizable", "doneButton", fallback: "Done")
   /// An unexpected error has occurred

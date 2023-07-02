@@ -11,7 +11,8 @@
 "appDescription" = "AI Image Generator";
 "onboardMessage" = "Transform your creative ideas into stunning images";
 "getStarted" = "Get Started";
-"dashboardTitle" = "You haven't generated an image yet.\nEnter your prompt and turn your ideas into images.";
+//"dashboardTitle" = "You haven't generated an image yet.\nEnter your prompt and turn your ideas into images.";
+"dashboardTitle" = "Enter your prompt and turn your ideas into images.";
 "tabSettings" = "Settings";
 "save" = "Save";
 "share" = "Share";
@@ -40,6 +41,7 @@
 "logoutConfirmationMessage" = "Are you sure you want to logout?";
 "deleteAccount" = "Delete your account";
 "deleteAccountConfirmationMessage" = "Your account will be permanently deleted.\nDo you confirm?";
+"deletedSuccessfully" = "Your account has been deleted";
 "user" = "User";
 
 "continue" = "Continue";

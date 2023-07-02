@@ -129,9 +129,29 @@ struct KeychainItem {
 		}
 	}
 
-	static func deleteUserIdentifierFromKeychain() {
+	static var currentUserEmail: String {
+		do {
+			let email = try KeychainItem(service: bundleID, account: StorageKeys.email.rawValue).readItem()
+			return email
+		} catch {
+			return ""
+		}
+	}
+
+	static var currentUserName: String {
+		do {
+			let name = try KeychainItem(service: bundleID, account: StorageKeys.fullName.rawValue).readItem()
+			return name
+		} catch {
+			return ""
+		}
+	}
+
+	static func deleteUserFromKeychain() {
 		do {
 			try KeychainItem(service: bundleID, account: StorageKeys.userIdentifier.rawValue).deleteItem()
+			try KeychainItem(service: bundleID, account: StorageKeys.email.rawValue).deleteItem()
+			try KeychainItem(service: bundleID, account: StorageKeys.fullName.rawValue).deleteItem()
 		} catch {
 			print("Unable to delete userIdentifier from keychain")
 		}
@@ -141,5 +161,7 @@ struct KeychainItem {
 extension KeychainItem {
 	enum StorageKeys: String {
 		case userIdentifier
+		case fullName
+		case email
 	}
 }

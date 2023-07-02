@@ -10,7 +10,8 @@
 "appDescription" = "AI Image Generator";
 "onboardMessage" = "Yaratıcı fikirlerinizi çarpıcı görüntülere dönüştürün";
 "getStarted" = "Başlayın";
-"dashboardTitle" = "Henüz bir resim oluşturmadınız.\nMetninizi girin ve fikirlerinizi resme dökün.";
+//"dashboardTitle" = "Henüz bir resim oluşturmadınız.\nMetninizi girin ve fikirlerinizi resme dökün.";
+"dashboardTitle" = "Metninizi girin ve fikirlerinizi resme dökün.";
 "tabSettings" = "Ayarlar";
 "save" = "Kaydet";
 "share" = "Paylaş";
@@ -40,6 +41,7 @@
 "logoutConfirmationMessage" = "Çıkış yapmak istediğinizden emin misiniz?";
 "deleteAccount" = "Hesabı sil";
 "deleteAccountConfirmationMessage" = "Hesabınız kalıcı olarak silinecektir. \nOnaylıyor musunuz?";
+"deletedSuccessfully" = "Hesabınız Silindi";
 "user" = "Kullanıcı";
 
 "continue" = "Devam et";

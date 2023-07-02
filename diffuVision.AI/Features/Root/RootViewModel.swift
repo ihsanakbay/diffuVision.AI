@@ -1,10 +1,11 @@
-	//
+//
 //  RootViewModel.swift
 //  diffuVision.AI
 //
 //  Created by İhsan Akbay on 29.06.2023.
 //
 
+import AuthenticationServices
 import Foundation
 
 protocol RootViewModelOutput: AnyObject {
@@ -13,20 +14,23 @@ protocol RootViewModelOutput: AnyObject {
 }
 
 final class RootViewModel {
-//	private let loginStorageService: LoginStorageService
+	private let appleIDProvider = ASAuthorizationAppleIDProvider()
 	weak var output: RootViewModelOutput?
 
-//	init(loginStorageService: LoginStorageService) {
-//		self.loginStorageService = loginStorageService
-//	}
-
 	func checkAuth() {
-//		if let accessToken = loginStorageService.getUserAccessToken(),
-//		   !accessToken.isEmpty
-//		{
-//		output?.showMainPage()
-//		} else {
-			output?.showLoginPage()
-//		}
+		appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { state, _ in
+			switch state {
+			case .authorized:
+				DispatchQueue.main.async {
+					self.output?.showMainPage()
+				}
+			case .revoked, .notFound:
+				DispatchQueue.main.async {
+					self.output?.showLoginPage()
+				}
+			default:
+				break
+			}
+		}
 	}
 }

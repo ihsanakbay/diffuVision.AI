@@ -134,47 +134,47 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
 		case let appleIDCredential as ASAuthorizationAppleIDCredential:
 			// Create an account in your system.
 			let userIdentifier = appleIDCredential.user
-			let fullName = appleIDCredential.fullName
-			let email = appleIDCredential.email
+			let fullName = "\(appleIDCredential.fullName?.givenName ?? "") \(appleIDCredential.fullName?.familyName ?? "")"
+			let email = appleIDCredential.email ?? ""
 
-			saveUserInKeychain(userIdentifier)
-
-			// For the purpose of this demo app, show the Apple ID credential information in the `MainTabBarViewController`.
-			showMainViewController()
-
-		case let passwordCredential as ASPasswordCredential:
-
-			// Sign in using an existing iCloud Keychain credential.
-			let username = passwordCredential.user
-			let password = passwordCredential.password
-
-			// For the purpose of this demo app, show the password credential as an alert.
-			DispatchQueue.main.async {
-				self.showPasswordCredentialAlert(username: username, password: password)
+			let user = DBUser(uid: userIdentifier, email: email, fullName: fullName)
+			Task {
+				let dbUser = await UserManager.shared.getUser(userId: userIdentifier)
+				saveUserInKeychain(userIdentifier, fullName, email)
+				do {
+					if dbUser == nil {
+						try await UserManager.shared.createNewUser(user: user)
+					}
+				} catch {
+					self.infoAlert(message: error.localizedDescription, title: LocaleStrings.errorTitle)
+				}
 			}
+			showMainViewController()
 
 		default:
 			break
 		}
 	}
 
-	private func saveUserInKeychain(_ userIdentifier: String) {
-		output.send(.saveUserToKeychain(userIdentifier))
+	private func saveUserInKeychain(_ userIdentifier: String, _ fullName: String, _ email: String) {
+		output.send(.saveUserToKeychain(userIdentifier, fullName, email))
 	}
 
 	private func showMainViewController() {
 		let mainTabBarVC = MainTabBarController()
 		mainTabBarVC.modalPresentationStyle = .fullScreen
-		navigationController?.present(mainTabBarVC, animated: true)
-	}
-
-	private func showPasswordCredentialAlert(username: String, password: String) {
-		let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"
-		let alertController = UIAlertController(title: "Keychain Credential Received",
-		                                        message: message,
-		                                        preferredStyle: .alert)
-		alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-		present(alertController, animated: true, completion: nil)
+		mainTabBarVC.isModalInPresentation = false
+		mainTabBarVC.selectedIndex = 0
+		DispatchQueue.main.async {
+			self.dismiss(animated: true) {
+				if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+				   let delegate = windowScene.delegate as? SceneDelegate,
+				   let window = delegate.window
+				{
+					window.rootViewController = mainTabBarVC
+				}
+			}
+		}
 	}
 
 	/// - Tag: did_complete_error
