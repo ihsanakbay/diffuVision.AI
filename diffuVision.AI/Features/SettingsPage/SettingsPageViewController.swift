@@ -120,9 +120,13 @@ extension SettingsPageViewController {
 		SKStoreReviewController.requestReview(in: scene)
 	}
 
-	private func policyTapped() {}
+	private func policyTapped() {
+		openWebView(url: Constants.privacyPolicyLink, title: LocaleStrings.policy)
+	}
 
-	private func touTapped() {}
+	private func touTapped() {
+		openWebView(url: Constants.termsOfUseLink, title: LocaleStrings.tou)
+	}
 
 	private func premiumTapped() {
 		let vc = SubscriptionViewController()
@@ -143,5 +147,12 @@ extension SettingsPageViewController {
 		let loginVC = LoginViewController()
 		loginVC.modalPresentationStyle = .fullScreen
 		navigationController?.present(loginVC, animated: true)
+	}
+
+	private func openWebView(url: String, title: String) {
+		guard let url = URL(string: url) else { return }
+		let vc = WebViewController(url: url, title: title)
+		let nav = UINavigationController(rootViewController: vc)
+		present(nav, animated: true)
 	}
 }

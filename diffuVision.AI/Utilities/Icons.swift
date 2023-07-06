@@ -25,7 +25,7 @@ struct Icons {
 		case user = "person.fill"
 		case download = "square.and.arrow.down"
 		case share = "square.and.arrow.up"
-		case regenerate = "arrow.triangle.2.circlepath"
+		case refresh = "arrow.triangle.2.circlepath"
 		case send = "paperplane.fill"
 		case policy = "exclamationmark.shield.fill"
 		case tou = "doc.text.fill"

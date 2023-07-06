@@ -33,12 +33,27 @@ class WebViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		view.backgroundColor = Colors.backgroundColor.color
 		view.addSubview(webView)
 		webView.load(URLRequest(url: url))
+		configureButtons()
 	}
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		webView.frame = view.bounds
+	}
+	
+	private func configureButtons() {
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(didTapRefresh))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: LocaleStrings.doneButton, style: .done, target: self, action: #selector(didTapDone))
+	}
+	
+	@objc private func didTapRefresh() {
+		webView.load(URLRequest(url: url))
+	}
+	
+	@objc private func didTapDone() {
+		dismiss(animated: true)
 	}
 }
