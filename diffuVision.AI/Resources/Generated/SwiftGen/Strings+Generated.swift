@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum LocaleStrings {
+  /// All Subscription Plans
+  internal static let allPlans = LocaleStrings.tr("Localizable", "allPlans", fallback: "All Subscription Plans")
   /// AI Image Generator
   internal static let appDescription = LocaleStrings.tr("Localizable", "appDescription", fallback: "AI Image Generator")
   /// Localizable.strings
@@ -21,9 +23,8 @@ internal enum LocaleStrings {
   internal static let cancel = LocaleStrings.tr("Localizable", "cancel", fallback: "Cancel")
   /// Continue
   internal static let `continue` = LocaleStrings.tr("Localizable", "continue", fallback: "Continue")
-  /// You haven't generated an image yet.
   /// Enter your prompt and turn your ideas into images.
-  internal static let dashboardTitle = LocaleStrings.tr("Localizable", "dashboardTitle", fallback: "You haven't generated an image yet.\nEnter your prompt and turn your ideas into images.")
+  internal static let dashboardTitle = LocaleStrings.tr("Localizable", "dashboardTitle", fallback: "Enter your prompt and turn your ideas into images.")
   /// Delete your account
   internal static let deleteAccount = LocaleStrings.tr("Localizable", "deleteAccount", fallback: "Delete your account")
   /// Your account will be permanently deleted.
@@ -55,12 +56,14 @@ internal enum LocaleStrings {
   internal static let mySubscription = LocaleStrings.tr("Localizable", "mySubscription", fallback: "My Subscription")
   /// None
   internal static let `none` = LocaleStrings.tr("Localizable", "none", fallback: "None")
+  /// Don't have any subscription
+  internal static let noSubs = LocaleStrings.tr("Localizable", "noSubs", fallback: "Don't have any subscription")
   /// OK
   internal static let ok = LocaleStrings.tr("Localizable", "ok", fallback: "OK")
   /// Transform your creative ideas into stunning images
   internal static let onboardMessage = LocaleStrings.tr("Localizable", "onboardMessage", fallback: "Transform your creative ideas into stunning images")
-  /// Privacy Policy & Terms of Use
-  internal static let policy = LocaleStrings.tr("Localizable", "policy", fallback: "Privacy Policy & Terms of Use")
+  /// Privacy Policy
+  internal static let policy = LocaleStrings.tr("Localizable", "policy", fallback: "Privacy Policy")
   /// Premium
   internal static let premium = LocaleStrings.tr("Localizable", "premium", fallback: "Premium")
   /// Enter your prompt here
@@ -79,20 +82,27 @@ internal enum LocaleStrings {
   internal static let selectStyle = LocaleStrings.tr("Localizable", "selectStyle", fallback: "Style")
   /// Share
   internal static let share = LocaleStrings.tr("Localizable", "share", fallback: "Share")
-  /// Buy Subscription
-  internal static let subscriptions = LocaleStrings.tr("Localizable", "subscriptions", fallback: "Buy Subscription")
-  /// You can start using the application by subscribing
-  internal static let subscriptionsDescription = LocaleStrings.tr("Localizable", "subscriptionsDescription", fallback: "You can start using the application by subscribing")
+  /// Subscriptions
+  internal static let subscriptions = LocaleStrings.tr("Localizable", "subscriptions", fallback: "Subscriptions")
+  /// Subscribe and transform your creative ideas into stunning images
+  internal static let subscriptionsDescription = LocaleStrings.tr("Localizable", "subscriptionsDescription", fallback: "Subscribe and transform your creative ideas into stunning images")
   /// Payment will be charged to your AppStore account upon confirmation of purchase. The subscription will automatically renew and be charged 24 hours before the end of the current period unless turned off by the user in the user's account settings. Any unused portion of the trial will be forfeited.
   internal static let subscriptionToC = LocaleStrings.tr("Localizable", "subscriptionToC", fallback: "Payment will be charged to your AppStore account upon confirmation of purchase. The subscription will automatically renew and be charged 24 hours before the end of the current period unless turned off by the user in the user's account settings. Any unused portion of the trial will be forfeited.")
   /// Settings
   internal static let tabSettings = LocaleStrings.tr("Localizable", "tabSettings", fallback: "Settings")
+  /// Terms of Use
+  internal static let tou = LocaleStrings.tr("Localizable", "tou", fallback: "Terms of Use")
   /// Check your network connection and try again
   internal static let unreachableError = LocaleStrings.tr("Localizable", "unreachableError", fallback: "Check your network connection and try again")
   /// User
   internal static let user = LocaleStrings.tr("Localizable", "user", fallback: "User")
   /// Yes
   internal static let yes = LocaleStrings.tr("Localizable", "yes", fallback: "Yes")
+  /// Your subscription:
+  /// %@
+  internal static func yourSubs(_ p1: Any) -> String {
+    return LocaleStrings.tr("Localizable", "yourSubs", String(describing: p1), fallback: "Your subscription:\n%@")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

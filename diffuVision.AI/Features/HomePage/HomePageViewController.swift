@@ -10,7 +10,7 @@ import SnapKit
 import UIKit
 
 class HomePageViewController: UIViewController {
-	private let sizeView: UIView = {
+		private let sizeView: UIView = {
 		let view = UIView()
 		view.backgroundColor = Colors.secondaryBackgroundColor.color
 		view.layer.cornerRadius = 10

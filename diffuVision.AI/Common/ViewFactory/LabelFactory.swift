@@ -13,7 +13,8 @@ enum LabelFactory {
 		font: UIFont,
 		backgroundColor: UIColor = .clear,
 		textColor: UIColor = Colors.textColor.color,
-		textAlignment: NSTextAlignment = .center
+		textAlignment: NSTextAlignment = .center,
+		numOfLines: Int = 0
 	) -> UILabel {
 		let label = UILabel()
 		label.text = text
@@ -21,6 +22,7 @@ enum LabelFactory {
 		label.backgroundColor = backgroundColor
 		label.textColor = textColor
 		label.textAlignment = textAlignment
+		label.numberOfLines = numOfLines
 		return label
 	}
 }

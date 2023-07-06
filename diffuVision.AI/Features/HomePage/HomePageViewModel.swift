@@ -32,6 +32,7 @@ final class HomePageViewModel: ObservableObject {
 	@Published var engines: [Engine] = .init()
 	@Published var prompt: String = ""
 
+	private let store: StoreKitManager = .init()
 	private let output = PassthroughSubject<Output, Never>()
 	private var cancellables = Set<AnyCancellable>()
 

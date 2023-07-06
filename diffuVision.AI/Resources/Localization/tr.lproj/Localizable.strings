@@ -33,7 +33,8 @@
 "selectEngine" = "AI Model";
 "generateImage" = "Görüntü oluşturuluyor. Lütfen Bekleyiniz.";
 
-"policy" = "Gizlilik Politikası & Kullanım Koşulları";
+"policy" = "Gizlilik Politikası";
+"tou" = "Kullanım Koşulları";
 "feedback" = "Bize geri bildirim yapın";
 "premium" = "Premium";
 
@@ -46,7 +47,10 @@
 
 "continue" = "Devam et";
 "restore" = "Satın almayı geri yükle";
-"subscriptions" = "Abonelik Satın Al";
+"subscriptions" = "Abonelikler";
+"allPlans" = "Tüm Abonelik Planları";
 "mySubscription" = "Aboneliklerim";
-"subscriptionsDescription" = "Abone olarak uygulamayı kullanmaya başlayabilirsiniz";
+"noSubs" = "Herhangi bir boneliğin bulunmuyor";
+"yourSubs" = "Aboneliğin:\n%@";
+"subscriptionsDescription" = "Abone olarak yaratıcı fikirlerinizi çarpıcı görüntülere dönüştürün";
 "subscriptionToC" = "Ödeme, satın alma onayının ardından AppStore hesabınızdan tahsil edilecektir. Abonelik, kullanıcının hesap ayarlarında kullanıcı tarafından kapatılmadığı sürece, cari dönemin bitiminden 24 saat önce otomatik olarak yenilenecek ve ücretlendirilecektir. Denemenin kullanılmayan kısmı kaybedilecektir.";

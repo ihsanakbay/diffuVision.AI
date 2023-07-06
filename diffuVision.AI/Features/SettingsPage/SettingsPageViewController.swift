@@ -6,17 +6,20 @@
 //
 
 import Combine
+import StoreKit
 import UIKit
 
 class SettingsPageViewController: UIViewController {
 	private lazy var userView = SettingsItemView()
 	private lazy var reviewView = SettingsItemView()
 	private lazy var policyView = SettingsItemView()
+	private lazy var touView = SettingsItemView()
 	private lazy var logoutView = SettingsItemView()
 	private lazy var deleteView = SettingsItemView()
+	private lazy var premiumView = SettingsItemView()
 
 	private lazy var appStackView = StackViewFactory.build(
-		subviews: [reviewView, policyView],
+		subviews: [reviewView, policyView, touView],
 		axis: .vertical,
 		spacing: 16,
 		distribution: .fillProportionally)
@@ -28,7 +31,7 @@ class SettingsPageViewController: UIViewController {
 		distribution: .fillProportionally)
 
 	private lazy var stackView = StackViewFactory.build(
-		subviews: [userView, appStackView, authStackView],
+		subviews: [userView, appStackView, premiumView, authStackView],
 		axis: .vertical,
 		spacing: 32,
 		alignment: .fill,
@@ -66,10 +69,18 @@ class SettingsPageViewController: UIViewController {
 			self.policyTapped()
 		}
 
+		touView.configure(iconName: Icons.General.tou.rawValue, title: LocaleStrings.tou) {
+			self.touTapped()
+		}
+
 		logoutView.configure(iconName: Icons.General.logout.rawValue, title: LocaleStrings.logout) {
 			self.confirmAlert(message: LocaleStrings.logoutConfirmationMessage, title: LocaleStrings.logout) {
 				self.output.send(.signOutTapped)
 			}
+		}
+
+		premiumView.configure(iconName: Icons.General.premium.rawValue, title: LocaleStrings.premium) {
+			self.premiumTapped()
 		}
 
 		deleteView.configure(iconName: Icons.General.delete.rawValue, title: LocaleStrings.deleteAccount, titleColor: .red) {
@@ -102,12 +113,31 @@ class SettingsPageViewController: UIViewController {
 
 extension SettingsPageViewController {
 	private func reviewTapped() {
-		print(KeychainItem.currentUserName)
-		print(KeychainItem.currentUserEmail)
-		print(KeychainItem.currentUserIdentifier)
+		guard let scene = view.window?.windowScene else {
+			infoAlert(message: LocaleStrings.errorTitle)
+			return
+		}
+		SKStoreReviewController.requestReview(in: scene)
 	}
 
 	private func policyTapped() {}
+
+	private func touTapped() {}
+
+	private func premiumTapped() {
+		let vc = SubscriptionViewController()
+		let nav = UINavigationController(rootViewController: vc)
+		nav.modalPresentationStyle = .pageSheet
+
+		if let sheet = nav.sheetPresentationController {
+			sheet.detents = [.large()]
+			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+			sheet.prefersGrabberVisible = true
+			sheet.preferredCornerRadius = 10
+		}
+
+		present(nav, animated: true)
+	}
 
 	private func showLoginVC() {
 		let loginVC = LoginViewController()

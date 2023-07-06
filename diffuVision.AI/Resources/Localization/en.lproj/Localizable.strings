@@ -34,7 +34,8 @@
 "selectStyle" = "Style";
 "generateImage" = "Generating image. Please wait.";
 
-"policy" = "Privacy Policy & Terms of Use";
+"policy" = "Privacy Policy";
+"tou" = "Terms of Use";
 "feedback" = "Give us feedback";
 "premium" = "Premium";
 "logout" = "Logout";
@@ -46,8 +47,11 @@
 
 "continue" = "Continue";
 "restore" = "Restore purchase";
-"subscriptions" = "Buy Subscription";
+"subscriptions" = "Subscriptions";
+"allPlans" = "All Subscription Plans";
 "mySubscription" = "My Subscription";
-"subscriptionsDescription" = "You can start using the application by subscribing";
+"noSubs" = "Don't have any subscription";
+"yourSubs" = "Your subscription:\n%@";
+"subscriptionsDescription" = "Subscribe and transform your creative ideas into stunning images";
 "subscriptionToC" = "Payment will be charged to your AppStore account upon confirmation of purchase. The subscription will automatically renew and be charged 24 hours before the end of the current period unless turned off by the user in the user's account settings. Any unused portion of the trial will be forfeited.";
 

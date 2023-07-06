@@ -28,6 +28,7 @@ struct Icons {
 		case regenerate = "arrow.triangle.2.circlepath"
 		case send = "paperplane.fill"
 		case policy = "exclamationmark.shield.fill"
+		case tou = "doc.text.fill"
 		case feedback = "quote.bubble.fill"
 		case premium = "crown.fill"
 		case checkmark
