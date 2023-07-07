@@ -21,19 +21,19 @@ class SettingsPageViewController: UIViewController {
 	private lazy var appStackView = StackViewFactory.build(
 		subviews: [reviewView, policyView, touView],
 		axis: .vertical,
-		spacing: 16,
+		spacing: 12,
 		distribution: .fillProportionally)
 
 	private lazy var authStackView = StackViewFactory.build(
 		subviews: [logoutView, deleteView],
 		axis: .vertical,
-		spacing: 16,
+		spacing: 12,
 		distribution: .fillProportionally)
 
 	private lazy var stackView = StackViewFactory.build(
 		subviews: [userView, appStackView, premiumView, authStackView],
 		axis: .vertical,
-		spacing: 32,
+		spacing: 24,
 		alignment: .fill,
 		distribution: .fillProportionally)
 
@@ -65,9 +65,11 @@ class SettingsPageViewController: UIViewController {
 		reviewView.configure(iconName: Icons.General.feedback.rawValue, title: LocaleStrings.feedback) {
 			self.reviewTapped()
 		}
+		
 		policyView.configure(iconName: Icons.General.policy.rawValue, title: LocaleStrings.policy) {
 			self.policyTapped()
 		}
+		
 
 		touView.configure(iconName: Icons.General.tou.rawValue, title: LocaleStrings.tou) {
 			self.touTapped()

@@ -72,7 +72,11 @@ class SettingsItemView: UIView {
 		}
 	}
 
-	func configure(iconName: String, title: String, titleColor: UIColor? = nil, action: (() -> Void)? = nil) {
+	func configure(iconName: String,
+	               title: String,
+	               titleColor: UIColor? = nil,
+	               action: (() -> Void)? = nil)
+	{
 		icon.image = UIImage(systemName: iconName)
 		self.title.text = title
 

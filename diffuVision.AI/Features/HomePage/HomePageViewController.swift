@@ -10,7 +10,7 @@ import SnapKit
 import UIKit
 
 class HomePageViewController: UIViewController {
-		private let sizeView: UIView = {
+	private let sizeView: UIView = {
 		let view = UIView()
 		view.backgroundColor = Colors.secondaryBackgroundColor.color
 		view.layer.cornerRadius = 10
@@ -86,7 +86,14 @@ class HomePageViewController: UIViewController {
 	                                                                imagePadding: 0,
 	                                                                cornerStyle: .large)
 	{
-		self.output.send(.generateButtonDidTapped)
+		Task {
+			self.viewModel.getCurrentSubscription()
+			if let plan = self.viewModel.currentSubscription {
+				self.output.send(.generateButtonDidTapped)
+			} else {
+				self.showPremium()
+			}
+		}
 	}
 
 	private lazy var promptStackView = StackViewFactory.build(
@@ -208,6 +215,11 @@ class HomePageViewController: UIViewController {
 					self?.generateButton.isEnabled = isEnabled
 				case .imageGenerated(model: let model):
 					self?.showGeneratedImage(generatedImageItemModel: model)
+				case .currentSubscriptionsFetched:
+					if let plan = self?.viewModel.currentSubscription {
+					} else {
+						self?.showPremium()
+					}
 				}
 			}
 			.store(in: &cancellables)
@@ -297,6 +309,21 @@ extension HomePageViewController: UITextViewDelegate {
 			viewModel.prompt = textView.text
 			output.send(.toggleButton)
 		}
+	}
+
+	private func showPremium() {
+		let vc = SubscriptionViewController()
+		let nav = UINavigationController(rootViewController: vc)
+		nav.modalPresentationStyle = .pageSheet
+
+		if let sheet = nav.sheetPresentationController {
+			sheet.detents = [.large()]
+			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+			sheet.prefersGrabberVisible = true
+			sheet.preferredCornerRadius = 10
+		}
+
+		present(nav, animated: true)
 	}
 }
 

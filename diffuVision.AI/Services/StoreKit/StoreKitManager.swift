@@ -15,6 +15,8 @@ public enum StoreError: Error {
 }
 
 final class StoreKitManager: ObservableObject {
+	static let shared = StoreKitManager()
+
 	@Published private(set) var subscriptions: [Product] = []
 	@Published private(set) var purchasedSubscriptions: [Product] = []
 	@Published private(set) var subscriptionGroupStatus: RenewalState?

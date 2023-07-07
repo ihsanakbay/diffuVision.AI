@@ -128,6 +128,7 @@ extension SubscriptionViewModel {
 			currentSubscription = highestProduct
 			output.send(.currentSubscriptionsFetched)
 		} catch {
+			CrashlyticsManager.shared.sendNonFatal(error: error)
 			output.send(.errorOccured(error: error))
 		}
 	}

@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import StoreKit
 
 final class HomePageViewModel: ObservableObject {
 	enum Input {
@@ -23,6 +24,7 @@ final class HomePageViewModel: ObservableObject {
 		case errorOccured(error: Swift.Error)
 		case toggleButton(isEnabled: Bool)
 		case imageGenerated(model: GeneratedImageItemModel)
+		case currentSubscriptionsFetched
 	}
 
 	@Published var request: APIParameters.TextToImageRequest = .init()
@@ -31,7 +33,8 @@ final class HomePageViewModel: ObservableObject {
 	@Published var selectedEngineId: String = Constants.engineId
 	@Published var engines: [Engine] = .init()
 	@Published var prompt: String = ""
-
+	@Published var currentSubscription: Product?
+	@Published var status: Product.SubscriptionInfo.Status?
 	private let store: StoreKitManager = .init()
 	private let output = PassthroughSubject<Output, Never>()
 	private var cancellables = Set<AnyCancellable>()
@@ -40,6 +43,7 @@ final class HomePageViewModel: ObservableObject {
 		input.sink { [weak self] event in
 			switch event {
 			case .viewDidLoad:
+				self?.getCurrentSubscription()
 				self?.fetchEngineList()
 				self?.checkButtonStatus()
 				self?.output.send(.sizeSelected(size: self?.selectedSize ?? .sizes[1]))
@@ -66,6 +70,7 @@ final class HomePageViewModel: ObservableObject {
 				switch completion {
 				case .finished:
 					Log.info("Successfully fetched models")
+					CrashlyticsManager.shared.addLog(message: "Successfully fetched models")
 				case .failure(let error):
 					Log.error("Unable to fetched models \(error)")
 					self?.output.send(.errorOccured(error: error))
@@ -82,9 +87,9 @@ final class HomePageViewModel: ObservableObject {
 		request.width = selectedSize.width
 		request.height = selectedSize.height
 
-//		if selectedStyle.id != StylePreset.StylePresets.none.rawValue {
-//			request.stylePreset = selectedStyle.id
-//		}
+		//		if selectedStyle.id != StylePreset.StylePresets.none.rawValue {
+		//			request.stylePreset = selectedStyle.id
+		//		}
 
 		let textPrompt = APIParameters.TextPrompt(text: prompt)
 		request.textPrompts = [textPrompt]
@@ -95,9 +100,11 @@ final class HomePageViewModel: ObservableObject {
 				case .finished:
 					Spinner.hideSpinner()
 					Log.info("Image successfully generated")
+					CrashlyticsManager.shared.addLog(message: "Image successfully generated")
 				case .failure(let error):
 					Spinner.hideSpinner()
 					Log.error("Unable to generate image: \(error)")
+					CrashlyticsManager.shared.sendNonFatal(error: error)
 					self?.output.send(.errorOccured(error: error))
 				}
 			} receiveValue: { [weak self] response in
@@ -118,5 +125,9 @@ final class HomePageViewModel: ObservableObject {
 
 	func clearAll() {
 		generatedImageItemModel.response = nil
+	}
+
+	func getCurrentSubscription() {
+		currentSubscription = StoreKitManager.shared.purchasedSubscriptions.first
 	}
 }
