@@ -11,7 +11,7 @@
 "onboardMessage" = "Yaratıcı fikirlerinizi çarpıcı görüntülere dönüştürün";
 "getStarted" = "Başlayın";
 //"dashboardTitle" = "Henüz bir resim oluşturmadınız.\nMetninizi girin ve fikirlerinizi resme dökün.";
-"dashboardTitle" = "Metninizi girin ve fikirlerinizi resme dökün.";
+"dashboardTitle" = "Metninizi girin ve fikirlerinizi resme dökün";
 "tabSettings" = "Ayarlar";
 "save" = "Kaydet";
 "share" = "Paylaş";
@@ -54,3 +54,8 @@
 "yourSubs" = "Aboneliğin:\n%@";
 "subscriptionsDescription" = "Abone olarak yaratıcı fikirlerinizi çarpıcı görüntülere dönüştürün";
 "subscriptionToC" = "Ödeme, satın alma onayının ardından AppStore hesabınızdan tahsil edilecektir. Abonelik, kullanıcının hesap ayarlarında kullanıcı tarafından kapatılmadığı sürece, cari dönemin bitiminden 24 saat önce otomatik olarak yenilenecek ve ücretlendirilecektir. Denemenin kullanılmayan kısmı kaybedilecektir.";
+
+
+"sampler" = "Örnekleyici";
+"steps" = "Adımlar";
+"select" = "Seç";

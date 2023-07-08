@@ -20,7 +20,7 @@ struct ButtonFactory {
 		contentAlignment: UIControl.ContentHorizontalAlignment = .center,
 		action: (() -> Void)? = nil
 	) -> UIButton {
-		let button = UIButton()
+		let button = UIButton(type: .system)
 		button.configuration = .filled()
 		button.configuration?.title = text
 		button.configuration?.baseForegroundColor = foregroundColor
@@ -30,7 +30,6 @@ struct ButtonFactory {
 		button.configuration?.imagePlacement = imagePlacement
 		button.configuration?.cornerStyle = cornerStyle
 		button.contentHorizontalAlignment = contentAlignment
-		
 		button.addAction(UIAction { _ in
 			action?()
 		}, for: .touchUpInside)

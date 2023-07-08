@@ -12,7 +12,7 @@
 "onboardMessage" = "Transform your creative ideas into stunning images";
 "getStarted" = "Get Started";
 //"dashboardTitle" = "You haven't generated an image yet.\nEnter your prompt and turn your ideas into images.";
-"dashboardTitle" = "Enter your prompt and turn your ideas into images.";
+"dashboardTitle" = "Enter your prompt and turn your ideas into images";
 "tabSettings" = "Settings";
 "save" = "Save";
 "share" = "Share";
@@ -55,3 +55,7 @@
 "subscriptionsDescription" = "Subscribe and transform your creative ideas into stunning images";
 "subscriptionToC" = "Payment will be charged to your AppStore account upon confirmation of purchase. The subscription will automatically renew and be charged 24 hours before the end of the current period unless turned off by the user in the user's account settings. Any unused portion of the trial will be forfeited.";
 
+
+"sampler" = "Sampler";
+"steps" = "Steps";
+"select" = "Select";

@@ -23,8 +23,8 @@ internal enum LocaleStrings {
   internal static let cancel = LocaleStrings.tr("Localizable", "cancel", fallback: "Cancel")
   /// Continue
   internal static let `continue` = LocaleStrings.tr("Localizable", "continue", fallback: "Continue")
-  /// Enter your prompt and turn your ideas into images.
-  internal static let dashboardTitle = LocaleStrings.tr("Localizable", "dashboardTitle", fallback: "Enter your prompt and turn your ideas into images.")
+  /// Enter your prompt and turn your ideas into images
+  internal static let dashboardTitle = LocaleStrings.tr("Localizable", "dashboardTitle", fallback: "Enter your prompt and turn your ideas into images")
   /// Delete your account
   internal static let deleteAccount = LocaleStrings.tr("Localizable", "deleteAccount", fallback: "Delete your account")
   /// Your account will be permanently deleted.
@@ -72,8 +72,12 @@ internal enum LocaleStrings {
   internal static let regenerate = LocaleStrings.tr("Localizable", "regenerate", fallback: "Regenerate")
   /// Restore purchase
   internal static let restore = LocaleStrings.tr("Localizable", "restore", fallback: "Restore purchase")
+  /// Sampler
+  internal static let sampler = LocaleStrings.tr("Localizable", "sampler", fallback: "Sampler")
   /// Save
   internal static let save = LocaleStrings.tr("Localizable", "save", fallback: "Save")
+  /// Select
+  internal static let select = LocaleStrings.tr("Localizable", "select", fallback: "Select")
   /// Choose Model
   internal static let selectEngine = LocaleStrings.tr("Localizable", "selectEngine", fallback: "Choose Model")
   /// Choose Size
@@ -82,6 +86,8 @@ internal enum LocaleStrings {
   internal static let selectStyle = LocaleStrings.tr("Localizable", "selectStyle", fallback: "Style")
   /// Share
   internal static let share = LocaleStrings.tr("Localizable", "share", fallback: "Share")
+  /// Steps
+  internal static let steps = LocaleStrings.tr("Localizable", "steps", fallback: "Steps")
   /// Subscriptions
   internal static let subscriptions = LocaleStrings.tr("Localizable", "subscriptions", fallback: "Subscriptions")
   /// Subscribe and transform your creative ideas into stunning images

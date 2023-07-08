@@ -21,6 +21,7 @@ class SelectedItem {
 	static let shared = SelectedItem()
 	var size: Size = .sizes[1]
 	var engine: Engine = .init(id: Constants.engineId, description: "", name: "", type: "")
+	var sampler: SamplerModel = .init(name: .AUTO)
 	private init() {}
 }
 
@@ -32,12 +33,16 @@ enum DefaultValues {
 	static let steps = 50
 }
 
-enum ClipGuidancePreset: String, Equatable, Hashable {
-	case NONE
-	case FAST_BLUE
-	case FAST_GREEN
-	case SIMPLE
-	case SLOW
-	case SLOWER
-	case SLOWEST
+enum Sampler: String, Equatable, Hashable {
+	case AUTO
+	case DDIM
+	case DDPM
+	case K_DPMPP_2M
+	case K_DPMPP_2S_ANCESTRAL
+	case K_DPM_2
+	case K_DPM_2_ANCESTRAL
+	case K_EULER
+	case K_EULER_ANCESTRAL
+	case K_HEUN
+	case K_LMS
 }

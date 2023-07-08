@@ -10,6 +10,8 @@ import SnapKit
 import UIKit
 
 class HomePageViewController: UIViewController {
+	// MARK: Size
+
 	private let sizeView: UIView = {
 		let view = UIView()
 		view.backgroundColor = Colors.secondaryBackgroundColor.color
@@ -35,6 +37,8 @@ class HomePageViewController: UIViewController {
 	                                                    textColor: Colors.textColor.color,
 	                                                    textAlignment: .right)
 
+	// MARK: Engine
+
 	private let engineView: UIView = {
 		let view = UIView()
 		view.backgroundColor = Colors.secondaryBackgroundColor.color
@@ -59,6 +63,87 @@ class HomePageViewController: UIViewController {
 	private let engineLabel: UILabel = LabelFactory.build(font: UIFont.systemFont(ofSize: 16),
 	                                                      textColor: Colors.textColor.color,
 	                                                      textAlignment: .right)
+
+	// MARK: CFG
+
+	private let cfgView: UIView = {
+		let view = UIView()
+		view.backgroundColor = Colors.secondaryBackgroundColor.color
+		view.layer.cornerRadius = 10
+		view.layer.shadowColor = UIColor.white.cgColor
+		view.layer.shadowOpacity = 0.25
+		view.layer.shadowOffset = CGSize(width: 0, height: 0)
+		view.layer.shadowRadius = 1
+		return view
+	}()
+
+	private lazy var cfgButton: UIButton = {
+		let button = ButtonFactory.build(
+			text: "CFG Scale",
+			buttonStyle: .plain(),
+			backgroundColor: .clear,
+			contentAlignment: .leading)
+		button.isUserInteractionEnabled = false
+		return button
+	}()
+
+	private let cfgLabel: UILabel = LabelFactory.build(font: UIFont.systemFont(ofSize: 16),
+	                                                   textColor: Colors.textColor.color,
+	                                                   textAlignment: .right)
+
+	// MARK: sampler
+
+	private let samplerView: UIView = {
+		let view = UIView()
+		view.backgroundColor = Colors.secondaryBackgroundColor.color
+		view.layer.cornerRadius = 10
+		view.layer.shadowColor = UIColor.white.cgColor
+		view.layer.shadowOpacity = 0.25
+		view.layer.shadowOffset = CGSize(width: 0, height: 0)
+		view.layer.shadowRadius = 1
+		return view
+	}()
+
+	private lazy var samplerButton: UIButton = {
+		let button = ButtonFactory.build(
+			text: LocaleStrings.sampler,
+			buttonStyle: .plain(),
+			backgroundColor: .clear,
+			contentAlignment: .leading)
+		button.isUserInteractionEnabled = false
+		return button
+	}()
+
+	private let samplerLabel: UILabel = LabelFactory.build(font: UIFont.systemFont(ofSize: 16),
+	                                                       textColor: Colors.textColor.color,
+	                                                       textAlignment: .right)
+
+	// MARK: Steps
+
+	private let stepsView: UIView = {
+		let view = UIView()
+		view.backgroundColor = Colors.secondaryBackgroundColor.color
+		view.layer.cornerRadius = 10
+		view.layer.shadowColor = UIColor.white.cgColor
+		view.layer.shadowOpacity = 0.25
+		view.layer.shadowOffset = CGSize(width: 0, height: 0)
+		view.layer.shadowRadius = 1
+		return view
+	}()
+
+	private lazy var stepsButton: UIButton = {
+		let button = ButtonFactory.build(
+			text: LocaleStrings.steps,
+			buttonStyle: .plain(),
+			backgroundColor: .clear,
+			contentAlignment: .leading)
+		button.isUserInteractionEnabled = false
+		return button
+	}()
+
+	private let stepsLabel: UILabel = LabelFactory.build(font: UIFont.systemFont(ofSize: 16),
+	                                                     textColor: Colors.textColor.color,
+	                                                     textAlignment: .right)
 
 	private let emptyLabel: UILabel = {
 		let label = LabelFactory.build(text: LocaleStrings.dashboardTitle,
@@ -174,9 +259,95 @@ class HomePageViewController: UIViewController {
 			make.height.equalTo(40)
 		}
 
+		// MARK: CFG
+
+		let cfgTap = UITapGestureRecognizer(target: self, action: #selector(selectCFG(_:)))
+		cfgView.addGestureRecognizer(cfgTap)
+		cfgView.addSubview(cfgButton)
+		cfgView.addSubview(cfgLabel)
+		view.addSubview(cfgView)
+		cfgView.snp.makeConstraints { make in
+			make.top.equalTo(engineView.snp.bottom).offset(10)
+			make.leading.equalToSuperview().offset(20)
+			make.trailing.equalToSuperview().offset(-20)
+			make.height.equalTo(40)
+		}
+
+		cfgButton.snp.makeConstraints { make in
+			make.top.equalToSuperview()
+			make.bottom.equalToSuperview()
+			make.leading.equalToSuperview()
+			make.trailing.equalTo(cfgLabel.snp.leading).offset(16)
+			make.height.equalTo(40)
+		}
+
+		cfgLabel.snp.makeConstraints { make in
+			make.trailing.equalToSuperview().offset(-16)
+			make.centerY.equalToSuperview()
+			make.height.equalTo(40)
+		}
+
+		// MARK: Sampler
+
+		let samplerTap = UITapGestureRecognizer(target: self, action: #selector(selectSampler(_:)))
+		samplerView.addGestureRecognizer(samplerTap)
+		samplerView.addSubview(samplerButton)
+		samplerView.addSubview(samplerLabel)
+		view.addSubview(samplerView)
+		samplerView.snp.makeConstraints { make in
+			make.top.equalTo(cfgView.snp.bottom).offset(10)
+			make.leading.equalToSuperview().offset(20)
+			make.trailing.equalToSuperview().offset(-20)
+			make.height.equalTo(40)
+		}
+
+		samplerButton.snp.makeConstraints { make in
+			make.top.equalToSuperview()
+			make.bottom.equalToSuperview()
+			make.leading.equalToSuperview()
+			make.trailing.equalTo(samplerLabel.snp.leading).offset(16)
+			make.height.equalTo(40)
+		}
+
+		samplerLabel.snp.makeConstraints { make in
+			make.trailing.equalToSuperview().offset(-16)
+			make.centerY.equalToSuperview()
+			make.height.equalTo(40)
+		}
+
+		// MARK: Steps
+
+		let stepsTap = UITapGestureRecognizer(target: self, action: #selector(selectSteps(_:)))
+		stepsView.addGestureRecognizer(stepsTap)
+		stepsView.addSubview(stepsButton)
+		stepsView.addSubview(stepsLabel)
+		view.addSubview(stepsView)
+		stepsView.snp.makeConstraints { make in
+			make.top.equalTo(samplerView.snp.bottom).offset(10)
+			make.leading.equalToSuperview().offset(20)
+			make.trailing.equalToSuperview().offset(-20)
+			make.height.equalTo(40)
+		}
+
+		stepsButton.snp.makeConstraints { make in
+			make.top.equalToSuperview()
+			make.bottom.equalToSuperview()
+			make.leading.equalToSuperview()
+			make.trailing.equalTo(stepsLabel.snp.leading).offset(16)
+			make.height.equalTo(40)
+		}
+
+		stepsLabel.snp.makeConstraints { make in
+			make.trailing.equalToSuperview().offset(-16)
+			make.centerY.equalToSuperview()
+			make.height.equalTo(40)
+		}
+
+		// MARK: Empty view
+
 		view.addSubview(emptyLabel)
 		emptyLabel.snp.makeConstraints { make in
-			make.top.equalTo(engineView.snp.bottom).offset(40)
+			make.top.equalTo(stepsView.snp.bottom).offset(40)
 			make.leading.equalToSuperview().offset(20)
 			make.trailing.equalToSuperview().offset(-20)
 		}
@@ -215,11 +386,12 @@ class HomePageViewController: UIViewController {
 					self?.generateButton.isEnabled = isEnabled
 				case .imageGenerated(model: let model):
 					self?.showGeneratedImage(generatedImageItemModel: model)
-				case .currentSubscriptionsFetched:
-					if let plan = self?.viewModel.currentSubscription {
-					} else {
-						self?.showPremium()
-					}
+				case .cfgScaleSelected(cfgScale: let cfg):
+					self?.cfgLabel.text = String(cfg)
+				case .samplerSelected(sampler: let sampler):
+					self?.samplerLabel.text = sampler.name.rawValue
+				case .stepsSelected(steps: let steps):
+					self?.stepsLabel.text = String(steps)
 				}
 			}
 			.store(in: &cancellables)
@@ -251,6 +423,63 @@ class HomePageViewController: UIViewController {
 
 		if let sheet = nav.sheetPresentationController {
 			sheet.detents = [.large()]
+			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+			sheet.prefersGrabberVisible = true
+			sheet.preferredCornerRadius = 10
+		}
+
+		present(nav, animated: true)
+	}
+
+	@objc func selectCFG(_ sender: UITapGestureRecognizer? = nil) {
+		let vc = CFGScaleViewController()
+		vc.output = self
+		let nav = UINavigationController(rootViewController: vc)
+		nav.modalPresentationStyle = .pageSheet
+		nav.preferredContentSize = CGSize(width: Constants.screenWidth, height: Constants.screenHeight * 0.2)
+		if let sheet = nav.sheetPresentationController {
+			sheet.detents = [
+				.custom(resolver: { _ in
+					Constants.screenHeight * 0.25
+				})
+			]
+			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+			sheet.prefersGrabberVisible = true
+			sheet.preferredCornerRadius = 10
+		}
+
+		present(nav, animated: true)
+	}
+
+	@objc func selectSampler(_ sender: UITapGestureRecognizer? = nil) {
+		let vc = SamplerViewController()
+		vc.output = self
+		let nav = UINavigationController(rootViewController: vc)
+		nav.modalPresentationStyle = .pageSheet
+
+		if let sheet = nav.sheetPresentationController {
+			sheet.detents = [.large()]
+			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+			sheet.prefersGrabberVisible = true
+			sheet.preferredCornerRadius = 10
+			sheet.selectedDetentIdentifier = .medium
+		}
+
+		present(nav, animated: true)
+	}
+
+	@objc func selectSteps(_ sender: UITapGestureRecognizer? = nil) {
+		let vc = StepsViewController()
+		vc.output = self
+		let nav = UINavigationController(rootViewController: vc)
+		nav.modalPresentationStyle = .pageSheet
+		nav.preferredContentSize = CGSize(width: Constants.screenWidth, height: Constants.screenHeight * 0.2)
+		if let sheet = nav.sheetPresentationController {
+			sheet.detents = [
+				.custom(resolver: { _ in
+					Constants.screenHeight * 0.25
+				})
+			]
 			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
 			sheet.prefersGrabberVisible = true
 			sheet.preferredCornerRadius = 10
@@ -336,5 +565,23 @@ extension HomePageViewController: SizeSelectionListViewOutput {
 extension HomePageViewController: EngineSelectionListViewOutput {
 	func didSelectItem(_ engine: Engine) {
 		output.send(.engineSelected(engineId: engine.id))
+	}
+}
+
+extension HomePageViewController: SamplerViewOutput {
+	func didSelectItem(_ sampler: SamplerModel) {
+		output.send(.samplerSelected(sampler: sampler))
+	}
+}
+
+extension HomePageViewController: StepsViewOutput {
+	func didSelectSteps(_ steps: Int) {
+		output.send(.stepsSelected(steps: steps))
+	}
+}
+
+extension HomePageViewController: CFGScaleViewOutput {
+	func didSelectCFG(_ cfg: Int) {
+		output.send(.cfgScaleSelected(cfgScale: cfg))
 	}
 }

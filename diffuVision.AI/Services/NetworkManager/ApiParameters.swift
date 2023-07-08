@@ -13,6 +13,7 @@ enum APIParameters {
 		var clipGuidancePreset: String
 		var height: Int
 		var width: Int
+		var sampler: String?
 		var samples: Int
 		var steps: Int
 		var stylePreset: String?
@@ -23,6 +24,7 @@ enum APIParameters {
 			case clipGuidancePreset = "clip_guidance_preset"
 			case height
 			case width
+			case sampler
 			case samples
 			case steps
 			case stylePreset = "style_preset"
@@ -31,7 +33,7 @@ enum APIParameters {
 
 		init() {
 			self.cfgScale = DefaultValues.cfgScale
-			self.clipGuidancePreset = ClipGuidancePreset.NONE.rawValue
+			self.clipGuidancePreset = "NONE"
 			self.height = DefaultValues.height
 			self.width = DefaultValues.width
 			self.samples = DefaultValues.samples
