@@ -16,7 +16,6 @@ private typealias DataSnapshot = NSDiffableDataSourceSnapshot<EngineSelectionLis
 
 class EngineSelectionListViewController: UIViewController {
 	private lazy var tableView = UITableView(frame: .zero, style: .insetGrouped)
-	var engines: [Engine] = []
 
 	private lazy var dataSource: DataSource = .init(tableView: tableView) { tableView, indexPath, item in
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: GenericSelectionListTableViewCell<Engine>.reuseId,
@@ -53,7 +52,7 @@ class EngineSelectionListViewController: UIViewController {
 	private func applySnapshot() {
 		var snapshot = DataSnapshot()
 		snapshot.appendSections([.main])
-		snapshot.appendItems(engines)
+		snapshot.appendItems(Engine.engines)
 		dataSource.apply(snapshot, animatingDifferences: true)
 	}
 

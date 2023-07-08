@@ -22,6 +22,7 @@ struct NetworkDispatcher {
 		print("[\(request.httpMethod?.uppercased() ?? "")] '\(request.url!)'")
 		return urlSession
 			.dataTaskPublisher(for: request)
+			.timeout(.seconds(300), scheduler: DispatchQueue.global())
 			.subscribe(on: DispatchQueue.global(qos: .default))
 			.tryMap { data, response in
 				guard let response = response as? HTTPURLResponse else {

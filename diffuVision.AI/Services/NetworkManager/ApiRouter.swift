@@ -8,13 +8,6 @@
 import Foundation
 
 class ApiRouter {
-	struct FetchEngineList: Request {
-		typealias ReturnType = [Engine]
-		var path: String = "/v1/engines/list"
-		var method: HttpMethod = .get
-		var body: [String: Any]?
-	}
-
 	struct GenerateImage: Request {
 		typealias ReturnType = TextToImageResponse
 		var path: String

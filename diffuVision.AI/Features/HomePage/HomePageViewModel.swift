@@ -29,11 +29,10 @@ final class HomePageViewModel: ObservableObject {
 		case stepsSelected(steps: Int)
 		case errorOccured(error: Swift.Error)
 		case toggleButton(isEnabled: Bool)
-		case imageGenerated(model: GeneratedImageItemModel)
+		case imageGenerated(model: TextToImageResponse)
 	}
 
 	@Published var request: APIParameters.TextToImageRequest = .init()
-	@Published var generatedImageItemModel: GeneratedImageItemModel = .init()
 	@Published var selectedSize: Size = .sizes[1]
 	@Published var selectedEngineId: String = Constants.engineId
 	@Published var selectedCFGScale: Int = DefaultValues.cfgScale
@@ -52,7 +51,6 @@ final class HomePageViewModel: ObservableObject {
 			switch event {
 			case .viewDidLoad:
 				self?.getCurrentSubscription()
-				self?.fetchEngineList()
 				self?.checkButtonStatus()
 				self?.output.send(.sizeSelected(size: self?.selectedSize ?? .sizes[1]))
 				self?.output.send(.engineSelected(engineId: self?.selectedEngineId ?? Constants.engineId))
@@ -82,23 +80,6 @@ final class HomePageViewModel: ObservableObject {
 		}.store(in: &cancellables)
 
 		return output.eraseToAnyPublisher()
-	}
-
-	func fetchEngineList() {
-		ApiClient.dispatch(ApiRouter.FetchEngineList())
-			.sink { [weak self] completion in
-				switch completion {
-				case .finished:
-					Log.info("Successfully fetched models")
-					CrashlyticsManager.shared.addLog(message: "Successfully fetched models")
-				case .failure(let error):
-					Log.error("Unable to fetched models \(error)")
-					self?.output.send(.errorOccured(error: error))
-				}
-			} receiveValue: { [weak self] response in
-				self?.engines = response
-			}
-			.store(in: &cancellables)
 	}
 
 	func generateImage() {
@@ -131,12 +112,10 @@ final class HomePageViewModel: ObservableObject {
 					self?.output.send(.errorOccured(error: error))
 				}
 			} receiveValue: { [weak self] response in
-				Spinner.hideSpinner()
-				self?.generatedImageItemModel.response = response
-				self?.generatedImageItemModel.promtMessage = self?.request.textPrompts.first?.text
-				self?.prompt = ""
-				if let model = self?.generatedImageItemModel {
-					self?.output.send(.imageGenerated(model: model))
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+					self?.output.send(.imageGenerated(model: response))
+					Spinner.hideSpinner()
+					self?.prompt = ""
 				}
 			}
 			.store(in: &cancellables)
@@ -144,10 +123,6 @@ final class HomePageViewModel: ObservableObject {
 
 	func checkButtonStatus() {
 		prompt == "" ? output.send(.toggleButton(isEnabled: false)) : output.send(.toggleButton(isEnabled: true))
-	}
-
-	func clearAll() {
-		generatedImageItemModel.response = nil
 	}
 
 	func getCurrentSubscription() {

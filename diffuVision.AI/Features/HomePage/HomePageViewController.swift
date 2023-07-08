@@ -380,12 +380,12 @@ class HomePageViewController: UIViewController {
 					self?.sizeLabel.text = size.title
 				case .engineSelected(engineId: let engineId):
 					self?.engineLabel.text = engineId
-				case .errorOccured(error: let error):
-					self?.infoAlert(message: error.localizedDescription, title: LocaleStrings.error)
+				case .errorOccured(error: _):
+					self?.infoAlert(message: LocaleStrings.error, title: LocaleStrings.errorTitle)
 				case .toggleButton(isEnabled: let isEnabled):
 					self?.generateButton.isEnabled = isEnabled
 				case .imageGenerated(model: let model):
-					self?.showGeneratedImage(generatedImageItemModel: model)
+					self?.showGeneratedImage(response: model)
 				case .cfgScaleSelected(cfgScale: let cfg):
 					self?.cfgLabel.text = String(cfg)
 				case .samplerSelected(sampler: let sampler):
@@ -397,6 +397,26 @@ class HomePageViewController: UIViewController {
 			.store(in: &cancellables)
 	}
 
+	private func showGeneratedImage(response: TextToImageResponse) {
+		let vc = GeneratedImageViewController()
+		vc.configure(response: response)
+		let nav = UINavigationController(rootViewController: vc)
+		nav.modalPresentationStyle = .fullScreen
+
+		if let sheet = nav.sheetPresentationController {
+			sheet.detents = [.large()]
+			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+			sheet.prefersGrabberVisible = true
+			sheet.preferredCornerRadius = 10
+		}
+
+		present(nav, animated: true)
+	}
+}
+
+// MARK: Handlers
+
+extension HomePageViewController {
 	@objc func selectSize(_ sender: UITapGestureRecognizer? = nil) {
 		let vc = SizeSelectionListViewController()
 		vc.output = self
@@ -417,12 +437,11 @@ class HomePageViewController: UIViewController {
 	@objc func selectEngine(_ sender: UITapGestureRecognizer? = nil) {
 		let vc = EngineSelectionListViewController()
 		vc.output = self
-		vc.engines = viewModel.engines
 		let nav = UINavigationController(rootViewController: vc)
 		nav.modalPresentationStyle = .pageSheet
 
 		if let sheet = nav.sheetPresentationController {
-			sheet.detents = [.large()]
+			sheet.detents = [.medium()]
 			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
 			sheet.prefersGrabberVisible = true
 			sheet.preferredCornerRadius = 10
@@ -487,23 +506,9 @@ class HomePageViewController: UIViewController {
 
 		present(nav, animated: true)
 	}
-
-	private func showGeneratedImage(generatedImageItemModel: GeneratedImageItemModel) {
-		let vc = GeneratedImageViewController()
-		vc.configure(model: generatedImageItemModel)
-		let nav = UINavigationController(rootViewController: vc)
-		nav.modalPresentationStyle = .fullScreen
-
-		if let sheet = nav.sheetPresentationController {
-			sheet.detents = [.large()]
-			sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-			sheet.prefersGrabberVisible = true
-			sheet.preferredCornerRadius = 10
-		}
-
-		present(nav, animated: true)
-	}
 }
+
+// MARK: Delegates
 
 extension HomePageViewController: UITextViewDelegate {
 	private func setupTextView() {

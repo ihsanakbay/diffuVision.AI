@@ -9,17 +9,16 @@ import Foundation
 
 struct Engine: Codable, Selectable, Identifiable {
 	var id: String
-	var description: String
-	var name: String
-	var type: String
 	var title: String? {
 		return id
 	}
+}
 
-	enum CodingKeys: String, CodingKey {
-		case id
-		case description
-		case name
-		case type
-	}
+extension Engine {
+	static let engines: [Engine] = [
+		Engine(id: "stable-diffusion-512-v2-0"),
+		Engine(id: "stable-diffusion-768-v2-0"),
+		Engine(id: "stable-diffusion-512-v2-1"),
+		Engine(id: "stable-diffusion-768-v2-1")
+	]
 }

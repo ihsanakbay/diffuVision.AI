@@ -68,7 +68,6 @@
 		F97C70122A4F7E2200EC1B49 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C70092A4F7E2200EC1B49 /* NetworkDispatcher.swift */; };
 		F97C70142A4F7EE000EC1B49 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C70132A4F7EE000EC1B49 /* Engine.swift */; };
 		F97C70162A4F7F6D00EC1B49 /* TectToImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C70152A4F7F6D00EC1B49 /* TectToImageResponse.swift */; };
-		F97C70182A4F7F9800EC1B49 /* GeneratedImageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C70172A4F7F9800EC1B49 /* GeneratedImageItemModel.swift */; };
 		F97C701A2A4F801200EC1B49 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C70192A4F801200EC1B49 /* Encodable+Extension.swift */; };
 		F97C701B2A4F823900EC1B49 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = F97C6FF62A4F7C3800EC1B49 /* Config.plist */; };
 		F97C701D2A4F82C900EC1B49 /* EngineSelectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97C701C2A4F82C900EC1B49 /* EngineSelectionListViewController.swift */; };
@@ -168,7 +167,6 @@
 		F97C70092A4F7E2200EC1B49 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		F97C70132A4F7EE000EC1B49 /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		F97C70152A4F7F6D00EC1B49 /* TectToImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TectToImageResponse.swift; sourceTree = "<group>"; };
-		F97C70172A4F7F9800EC1B49 /* GeneratedImageItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageItemModel.swift; sourceTree = "<group>"; };
 		F97C70192A4F801200EC1B49 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		F97C701C2A4F82C900EC1B49 /* EngineSelectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineSelectionListViewController.swift; sourceTree = "<group>"; };
 		F9A0E8102A51AA9300BAAE97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				F97C70132A4F7EE000EC1B49 /* Engine.swift */,
 				F9B3B3CF2A595D2B009B9801 /* SamplerModel.swift */,
 				F97C70152A4F7F6D00EC1B49 /* TectToImageResponse.swift */,
-				F97C70172A4F7F9800EC1B49 /* GeneratedImageItemModel.swift */,
 				F9A0E81B2A51C05F00BAAE97 /* DBUser.swift */,
 			);
 			path = Models;
@@ -767,7 +764,6 @@
 				F950A39E2A4D7DB300AC4D22 /* Icons.swift in Sources */,
 				F921B4E62A4DC21500D54F34 /* StackViewFactory.swift in Sources */,
 				F950A39C2A4D7D8000AC4D22 /* Constants.swift in Sources */,
-				F97C70182A4F7F9800EC1B49 /* GeneratedImageItemModel.swift in Sources */,
 				F97C700D2A4F7E2200EC1B49 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

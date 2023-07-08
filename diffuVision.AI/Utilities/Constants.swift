@@ -20,7 +20,7 @@ enum Constants {
 class SelectedItem {
 	static let shared = SelectedItem()
 	var size: Size = .sizes[1]
-	var engine: Engine = .init(id: Constants.engineId, description: "", name: "", type: "")
+	var engine: Engine = .engines[2]
 	var sampler: SamplerModel = .init(name: .AUTO)
 	private init() {}
 }

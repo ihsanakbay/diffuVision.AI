@@ -86,9 +86,8 @@ class GeneratedImageViewController: UIViewController {
 		}
 	}
 
-	func configure(model: GeneratedImageItemModel) {
-		if let response = model.response,
-		   !response.artifacts.isEmpty,
+	func configure(response: TextToImageResponse) {
+		if !response.artifacts.isEmpty,
 		   let base64 = response.artifacts[0].base64,
 		   let imageData = Data(base64Encoded: base64),
 		   let image = UIImage(data: imageData)

@@ -15,7 +15,7 @@ class StepsViewController: UIViewController {
 	private lazy var slider: UISlider = {
 		let slider = UISlider()
 		slider.minimumValue = 10
-		slider.maximumValue = 150
+		slider.maximumValue = 90
 		slider.value = 50
 		slider.isContinuous = true
 //		slider.tintColor = Colors.secondaryBackgroundColor.color
